@@ -8,6 +8,42 @@ const unitTypes=[
 ];
 const users=[{name:'TISZT-001',password:'rcpd123',rank:'Főhadnagy'}];
 const $=s=>document.querySelector(s); const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---- Egyedi notify (toast) + megerősítő (confirm) rendszer ---- */
+function _toastHost(){ let h=document.getElementById('uiToasts'); if(!h){ h=document.createElement('div'); h.id='uiToasts'; document.body.appendChild(h); } return h; }
+function uiNotify(msg, type='info', ms=3800){
+	const icons={info:'ℹ️',success:'✅',error:'⛔',warn:'⚠️'};
+	const t=document.createElement('div'); t.className='ui-toast '+type;
+	t.innerHTML=`<span class="ui-ico">${icons[type]||icons.info}</span><span class="ui-msg">${esc(msg)}</span><button class="ui-x" aria-label="Bezárás">✕</button>`;
+	_toastHost().appendChild(t);
+	const kill=()=>{ t.classList.add('hide'); setTimeout(()=>t.remove(),260); };
+	t.querySelector('.ui-x').onclick=kill;
+	if(ms) setTimeout(kill, ms);
+}
+// minden alert() helyett toast jelenik meg az oldal dizájnjában
+window.alert=function(msg){
+	const s=String(msg||'');
+	let type='info';
+	if(/hibás|tiltva|nincs jogosultság|nem lehet|nincs hozzáférés|nem található|törölve lett|maximum|legalább|töltsd ki|hiányzó|csak /i.test(s)) type='error';
+	if(/elküldve|létrehozva|mentve|hozzáadva|kapott|előkészítve|elkészült|sikeres/i.test(s)) type='success';
+	if(/törölve|eltávolítva/i.test(s)) type='warn';
+	uiNotify(s, type);
+};
+// megerősítő kérdés egyedi dialógusban: uiConfirm(msg, onYes, {danger:true})
+function uiConfirm(msg, onYes, opts={}){
+	const danger=opts.danger!==false; // alapból piros (veszélyes művelet)
+	const back=document.createElement('div'); back.className='ui-confirm-backdrop';
+	back.innerHTML=`<div class="ui-confirm ${danger?'danger':''}" role="dialog">
+		<h3><span class="ui-badge">${danger?'⚠️':'❓'}</span>${esc(opts.title|| (danger?'Biztos vagy benne?':'Megerősítés'))}</h3>
+		<p>${esc(msg)}</p>
+		<div class="ui-btns"><button class="ui-btn-cancel">Mégsem</button><button class="ui-btn-ok">${esc(opts.okText||'Igen, folytatom')}</button></div>
+	</div>`;
+	const close=()=>back.remove();
+	back.addEventListener('click',e=>{ if(e.target===back) close(); });
+	back.querySelector('.ui-btn-cancel').onclick=close;
+	back.querySelector('.ui-btn-ok').onclick=()=>{ close(); if(onYes) onYes(); };
+	document.body.appendChild(back);
+}
 function save(){localStorage.setItem('rcpd_units',JSON.stringify(state.units));localStorage.setItem('rcpd_reports',JSON.stringify(state.reports));localStorage.setItem('rcpd_apps',JSON.stringify(state.applications))}
 function load(){state.units=JSON.parse(localStorage.getItem('rcpd_units')||'[]');state.reports=JSON.parse(localStorage.getItem('rcpd_reports')||'[]');state.applications=JSON.parse(localStorage.getItem('rcpd_apps')||'[]')}
 async function init(){state.btk=await fetch('data/btk.json').then(r=>r.json());load();renderGroupSelect();renderBTK();renderUnits();renderReports();renderApplications()}
@@ -184,13 +220,13 @@ function renderLeadershipUsersList(){
     cont.innerHTML = `<div class="panel"><h3>Felhasználók</h3>${rows}</div>`;
 }
 
-function addToBlacklistQuick(badge){ if(!confirm('Biztosan tiltod ezt a fiókot?')) return; const u = getLocalUsers().find(x=>normalizeBadge(x.badge)===normalizeBadge(badge)); if(!u) return alert('Nem található.'); let bl = loadBlacklist(); if(bl.map(x=>String(x).toLowerCase()).includes(u.ic.toLowerCase())) return alert('Már tiltott.'); bl.push(u.ic); saveBlacklist(bl); renderLeadershipUsersList(); alert('Fiók tiltva.'); }
+function addToBlacklistQuick(badge){ const u = getLocalUsers().find(x=>normalizeBadge(x.badge)===normalizeBadge(badge)); if(!u) return alert('Nem található.'); let bl = loadBlacklist(); if(bl.map(x=>String(x).toLowerCase()).includes(u.ic.toLowerCase())) return alert('Már tiltott.'); uiConfirm(`Biztosan tiltod ${u.ic} (${u.badge}) fiókját?`, ()=>{ bl.push(u.ic); saveBlacklist(bl); renderLeadershipUsersList(); alert('Fiók tiltva.'); }); }
 
 function renderLeadershipBlacklist(){ const cont = $('#lead_content'); if(!cont) return; const bl = loadBlacklist(); const blHtml = bl.map(b=>{ const u = getLocalUsers().find(x=>String(x.ic).toLowerCase()===String(b).toLowerCase()); const label = u? `${esc(u.ic)} • ${esc(u.badge)}` : esc(b); return `<div class="list-card"><div>${label}</div><div class="actions"><button class="danger small" onclick="removeFromBlacklist('${esc(b)}')">Eltávolít</button></div></div>` }).join('')||'<div class="muted">Nincs tiltott felhasználó.</div>'; cont.innerHTML = `<div class="panel"><h3>Tiltólista</h3><p class="muted">A tiltólista fiókokra (IC név) vonatkozik — a jelvényszámok szabadon újrahasznosíthatók.</p>${blHtml}<div style="margin-top:12px"><input id="blacklistInput" placeholder="IC név hozzáadása"><button class="primary small" onclick="addToBlacklist()">Hozzáad</button></div></div>`; }
 
 function renderLeadershipReportsAdmin(){ const cont = $('#lead_content'); if(!cont) return; if(!state.reports.length) { cont.innerHTML = '<div class="panel"><span class="muted">Nincs beküldött jelentés.</span></div>'; return; } const html = state.reports.map(r=>{ const preview = r.result==='fine' ? `<p><b>Bírság:</b> ${esc(r.abbr||'')} • ${esc(r.amount||'')} Ft</p><p>${esc((r.description||'').slice(0,180))}${(r.description||'').length>180?'…':''}</p>` : `<p><b>Elkövetett:</b> ${esc(r.crimes||'')}</p><p>${esc((r.description||'').slice(0,180))}${(r.description||'').length>180?'…':''}</p>`; return `<article class="list-card"><div><h3>${esc(r.result==='arrest'?'ELŐÁLLÍTÁS':'BÍRSÁGOLÁS')}</h3><p>${esc(r.date)} • ${esc(r.author)}</p><p>Egység: ${esc(r.unit||'Nincs')}</p>${preview}</div><div class="actions"><button class="ghost" onclick="showReport('${r.id}')">Megnyitás</button><button class="danger small" onclick="adminDeleteReport('${r.id}')">Törlés</button></div></article>` }).join(''); cont.innerHTML = `<div class="panel"><h3>Összes jelentés</h3>${html}</div>`; }
 
-function adminDeleteReport(id){ if(!confirm('Tényleg törlöd a jelentést?')) return; state.reports = state.reports.filter(r=>r.id!==id); save(); renderLeadershipReportsAdmin(); renderReports(); alert('Törölve.'); }
+function adminDeleteReport(id){ const r=state.reports.find(x=>x.id===id); if(!r) return; uiConfirm('Tényleg törlöd a jelentést?', ()=>{ state.reports = state.reports.filter(x=>x.id!==id); save(); renderLeadershipReportsAdmin(); renderReports(); alert('Törölve.'); }); }
 
 function viewReportsForBadge(badge){ const users = getLocalUsers(); const u = users.find(x=>String(x.badge).toUpperCase()===String(badge).toUpperCase()); const name = u? u.ic : badge; const reports = state.reports.filter(r=>r.author===name); if(!reports.length) return openModal(`<h2>${esc(name)} jelentései</h2><div class="panel"><span class="muted">Nincs jelentés.</span></div>`); const html = reports.map(r=>`<article class="list-card"><div><h3>${esc(r.result==='arrest'?'ELŐÁLLÍTÁS':'BÍRSÁGOLÁS')}</h3><p>${esc(r.date)} • ${esc(r.author)}</p><p>${esc((r.description||'').slice(0,240))}</p></div><div class="actions"><button class="ghost" onclick="showReport('${r.id}')">Megnyitás</button></div></article>`).join(''); openModal(`<h2>${esc(name)} jelentései</h2><div>${html}</div>`); }
 
@@ -210,8 +246,8 @@ function createUserFromModal(){
 	users.push({ badge, ic, password: pw, rank }); saveLocalUsers(users); closeModal(); renderLeadershipPanel(); alert('Felhasználó létrehozva.');
 }
 
-function deleteLocalUser(badge){ if(!confirm('Törölni?')) return; const nb = normalizeBadge(badge); let users = getLocalUsers(); const del = users.find(u=>normalizeBadge(u.badge)===nb); users = users.filter(u=>normalizeBadge(u.badge)!==nb); saveLocalUsers(users); // blacklist the ACCOUNT (IC name), not the badge — badge stays reusable
-	if(del){ let bl = loadBlacklist(); if(!bl.includes(del.ic)) bl.push(del.ic); saveBlacklist(bl); } renderLeadershipPanel(); alert('Fiók törölve és tiltva.'); }
+function deleteLocalUser(badge){ const nb = normalizeBadge(badge); const del = getLocalUsers().find(u=>normalizeBadge(u.badge)===nb); if(!del) return alert('Nem található.'); uiConfirm(`Biztosan törlöd ${del.ic} (${del.badge}) fiókját? Az összes adata elveszik és a fiók tiltásra kerül.`, ()=>{ let users = getLocalUsers().filter(u=>normalizeBadge(u.badge)!==nb); saveLocalUsers(users); // blacklist the ACCOUNT (IC name), not the badge — badge stays reusable
+	let bl = loadBlacklist(); if(!bl.includes(del.ic)) bl.push(del.ic); saveBlacklist(bl); renderLeadershipPanel(); alert('Fiók törölve és tiltva.'); }); }
 
 function editLocalUser(badge){ const users = getLocalUsers(); const u = users.find(x=>x.badge===badge); if(!u) return alert('Nem található.'); openModal(`<h2>Felhasználó szerkesztése</h2><form id="editUserForm" class="form-grid"><label>IC név<input id="edit_user_ic" value="${esc(u.ic)}"></label><label>Rang<input id="edit_user_rank" value="${esc(u.rank)}"></label><label>Új jelszó (üres = változatlan)<input id="edit_user_pw"></label><button class="primary">Mentés</button></form>`); $('#editUserForm').onsubmit=e=>{ e.preventDefault(); const ic=$('#edit_user_ic').value.trim(); const rank=$('#edit_user_rank').value.trim(); const pw=$('#edit_user_pw').value; if(!ic||!rank) return alert('Hiányzó mező'); u.ic=ic; u.rank=rank; if(pw) u.password=pw; saveLocalUsers(users); closeModal(); renderLeadershipPanel(); alert('Mentve.'); }; }
 
@@ -263,9 +299,10 @@ function removeHibapont(badge){
 
 function resetHibapont(badge){
 	if(!isExecutive()) return alert('Nincs jogosultságod.');
-	if(!confirm('Biztosan nullázod a hibapontokat?')) return;
+	uiConfirm('Biztosan nullázod a hibapontokat?', ()=>{
 	const pts = loadPoints(); const key = Object.keys(pts).find(k=>String(k).toUpperCase()===String(badge).toUpperCase());
 	if(key){ delete pts[key]; savePoints(pts); } renderLeadershipPoints();
+	});
 }
 
 function renderGroupSelect(){const groups=[...new Set(state.btk.map(x=>x.group))];$('#btkGroup').innerHTML='<option value="all">Minden csoport</option>'+groups.map(g=>`<option>${esc(g)}</option>`).join('')}
@@ -307,13 +344,12 @@ function renderUnits(){
 
 function disbandUnit(id){
 	const u=state.units.find(x=>x.id===id); if(!u) return; const currentName = state.user ? (state.user.ic || state.user.name) : null; if(!currentName||u.leader!==currentName){return alert('Csak az egység vezetője szüntetheti meg az egységet.');}
-	if(!confirm(`Biztosan fel akarod oszlatni az ${u.callsign} egységet?`)) return;
-	state.units=state.units.filter(x=>x.id!==id); save(); renderUnits();
+	uiConfirm(`Biztosan fel akarod oszlatni az ${u.callsign} egységet?`, ()=>{ state.units=state.units.filter(x=>x.id!==id); save(); renderUnits(); });
 }
 
 function adminDeleteUnit(id){
 	if(!isLeader()) return alert('Csak vezetők törölhetnek egységet.');
-	const u=state.units.find(x=>x.id===id); if(!u) return; if(!confirm(`Admin törlés: törlöd az ${u.callsign} egységet?`)) return; state.units=state.units.filter(x=>x.id!==id); save(); renderUnits();
+	const u=state.units.find(x=>x.id===id); if(!u) return; uiConfirm(`Admin törlés: törlöd az ${u.callsign} egységet?`, ()=>{ state.units=state.units.filter(x=>x.id!==id); save(); renderUnits(); });
 }
 
 function testUnitPing(id){
@@ -453,8 +489,7 @@ function renderReports(){
 
 function deleteReport(id){
 	const r=state.reports.find(x=>x.id===id); if(!r) return; const currentName = state.user ? (state.user.ic || state.user.name) : null; if(!currentName||r.author!==currentName) return alert('Csak a saját jelentésed törölheted.');
-	if(!confirm('Biztosan törlöd a jelentést?')) return; state.reports=state.reports.filter(x=>x.id!==id); save(); renderReports();
-	renderLeaderReports();
+	uiConfirm('Biztosan törlöd a jelentést?', ()=>{ state.reports=state.reports.filter(x=>x.id!==id); save(); renderReports(); renderLeaderReports(); });
 }
 
 function editReport(id){
