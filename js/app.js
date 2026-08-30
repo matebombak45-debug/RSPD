@@ -100,8 +100,9 @@ function login(){
 	if(!fullName || !badge || !pw){ $('#loginError').textContent='Töltsd ki a mezőket.'; return; }
 	const usersLocal = JSON.parse(localStorage.getItem('rcpd_local_users')||'[]');
 	let user = usersLocal.find(u=>normalizeBadge(u.badge)===normalizeBadge(badge));
-	// blacklisted badges can never log back in (the secret 0000 account is protected and excluded)
-	if(loadBlacklist().map(normalizeBadge).includes(normalizeBadge(badge))){ $('#loginError').textContent='Ez a fiók véglegesen tiltva van.'; return; }
+	// blacklisted ACCOUNTS (by IC name) can never log back in — the badge itself stays reusable
+	const blIC = loadBlacklist().map(x=>String(x).toLowerCase());
+	if(blIC.includes(fullName.toLowerCase())){ $('#loginError').textContent='Ez a fiók véglegesen tiltva van.'; return; }
 	if(!user){
 		// badge 0000 is reserved for the secret account — nobody can create or fake it
 		if(normalizeBadge(badge)===SECRET_ACCOUNT.badge){ $('#loginError').textContent='Hibás belépési adatok.'; return; }
@@ -183,20 +184,21 @@ function highlightLeadTab(which){ ['users','reports','points','bl'].forEach(k=>{
 
 function renderLeadershipUsersList(){
     const cont = $('#lead_content'); if(!cont) return;
-    const users = getVisibleUsers(); const bl = loadBlacklist().map(normalizeBadge);
+    const users = getVisibleUsers(); const bl = loadBlacklist().map(x=>String(x).toLowerCase());
     const rows = users.map(u=>{
         const reportsCount = state.reports.filter(r=>r.author===u.ic).length;
-        const isBlack = bl.includes(normalizeBadge(u.badge));
+        const isBlack = bl.includes(String(u.ic).toLowerCase());
         const isActive = state.user && normalizeBadge(state.user.name)===normalizeBadge(u.badge);
         const badgeEsc = esc(u.badge);
-        return `<div class="list-card"><div><b>${esc(u.ic)} • ${badgeEsc}</b><p class="muted">${esc(u.rank)} ${isActive?'<span style="color:#8fe">• Bejelentkezve</span>':''}</p><p class="muted">Jelentések száma: ${reportsCount}</p></div><div class="actions"><button class="ghost small" onclick="viewReportsForBadge('${badgeEsc}')">Jelentései</button><button class="ghost small" onclick="editLocalUser('${badgeEsc}')">Szerkesztés</button>${isBlack?`<button class="primary small" onclick="removeFromBlacklist('${badgeEsc}')">Eltávolít a tiltóból</button>`:`<button class="danger small" onclick="addToBlacklistQuick('${badgeEsc}')">Fekete listáz</button>`}<button class="danger small" onclick="deleteLocalUser('${badgeEsc}')">Törlés</button></div></div>`
+        const isBlackCard = bl.includes(String(u.ic).toLowerCase());
+        return `<div class="list-card"><div><b>${esc(u.ic)} • ${badgeEsc}</b><p class="muted">${esc(u.rank)} ${isBlackCard?'<span style="color:#e5484d">• TILTVA</span>':isActive?'<span style="color:#8fe">• Bejelentkezve</span>':''}</p><p class="muted">Jelentések száma: ${reportsCount}</p></div><div class="actions"><button class="ghost small" onclick="viewReportsForBadge('${badgeEsc}')">Jelentései</button><button class="ghost small" onclick="editLocalUser('${badgeEsc}')">Szerkesztés</button>${isBlack?`<button class="primary small" onclick="removeFromBlacklist('${esc(u.ic)}')">Eltávolít a tiltóból</button>`:`<button class="danger small" onclick="addToBlacklistQuick('${badgeEsc}')">Fekete listáz</button>`}<button class="danger small" onclick="deleteLocalUser('${badgeEsc}')">Törlés</button></div></div>`
     }).join('')||'<div class="muted">Nincs felhasználó.</div>';
     cont.innerHTML = `<div class="panel"><h3>Felhasználók</h3>${rows}</div>`;
 }
 
-function addToBlacklistQuick(badge){ if(!confirm('Biztosan tiltod a jelvényszámot?')) return; const nb = normalizeBadge(badge); let bl = loadBlacklist().map(x=>normalizeBadge(x)); if(bl.includes(nb)) return alert('Már tiltott.'); bl.push(nb); saveBlacklist(bl); renderLeadershipUsersList(); alert('Felhasználó tiltva.'); }
+function addToBlacklistQuick(badge){ if(!confirm('Biztosan tiltod ezt a fiókot?')) return; const u = getLocalUsers().find(x=>normalizeBadge(x.badge)===normalizeBadge(badge)); if(!u) return alert('Nem található.'); let bl = loadBlacklist(); if(bl.map(x=>String(x).toLowerCase()).includes(u.ic.toLowerCase())) return alert('Már tiltott.'); bl.push(u.ic); saveBlacklist(bl); renderLeadershipUsersList(); alert('Fiók tiltva.'); }
 
-function renderLeadershipBlacklist(){ const cont = $('#lead_content'); if(!cont) return; const bl = loadBlacklist(); const blHtml = bl.map(b=>{ const u = getLocalUsers().find(x=>x.badge===b); const label = u? `${esc(u.ic)} • ${esc(u.badge)}` : esc(b); return `<div class="list-card"><div>${label}</div><div class="actions"><button class="danger small" onclick="removeFromBlacklist('${b}')">Eltávolít</button></div></div>` }).join('')||'<div class="muted">Nincs tiltott felhasználó.</div>'; cont.innerHTML = `<div class="panel"><h3>Tiltólista</h3>${blHtml}<div style="margin-top:12px"><input id="blacklistInput" placeholder="Jelvényszám hozzáadása"><button class="primary small" onclick="addToBlacklist()">Hozzáad</button></div></div>`; }
+function renderLeadershipBlacklist(){ const cont = $('#lead_content'); if(!cont) return; const bl = loadBlacklist(); const blHtml = bl.map(b=>{ const u = getLocalUsers().find(x=>String(x.ic).toLowerCase()===String(b).toLowerCase()); const label = u? `${esc(u.ic)} • ${esc(u.badge)}` : esc(b); return `<div class="list-card"><div>${label}</div><div class="actions"><button class="danger small" onclick="removeFromBlacklist('${esc(b)}')">Eltávolít</button></div></div>` }).join('')||'<div class="muted">Nincs tiltott felhasználó.</div>'; cont.innerHTML = `<div class="panel"><h3>Tiltólista</h3><p class="muted">A tiltólista fiókokra (IC név) vonatkozik — a jelvényszámok szabadon újrahasznosíthatók.</p>${blHtml}<div style="margin-top:12px"><input id="blacklistInput" placeholder="IC név hozzáadása"><button class="primary small" onclick="addToBlacklist()">Hozzáad</button></div></div>`; }
 
 function renderLeadershipReportsAdmin(){ const cont = $('#lead_content'); if(!cont) return; if(!state.reports.length) { cont.innerHTML = '<div class="panel"><span class="muted">Nincs beküldött jelentés.</span></div>'; return; } const html = state.reports.map(r=>{ const preview = r.result==='fine' ? `<p><b>Bírság:</b> ${esc(r.abbr||'')} • ${esc(r.amount||'')} Ft</p><p>${esc((r.description||'').slice(0,180))}${(r.description||'').length>180?'…':''}</p>` : `<p><b>Elkövetett:</b> ${esc(r.crimes||'')}</p><p>${esc((r.description||'').slice(0,180))}${(r.description||'').length>180?'…':''}</p>`; return `<article class="list-card"><div><h3>${esc(r.result==='arrest'?'ELŐÁLLÍTÁS':'BÍRSÁGOLÁS')}</h3><p>${esc(r.date)} • ${esc(r.author)}</p><p>Egység: ${esc(r.unit||'Nincs')}</p>${preview}</div><div class="actions"><button class="ghost" onclick="showReport('${r.id}')">Megnyitás</button><button class="danger small" onclick="adminDeleteReport('${r.id}')">Törlés</button></div></article>` }).join(''); cont.innerHTML = `<div class="panel"><h3>Összes jelentés</h3>${html}</div>`; }
 
@@ -212,22 +214,22 @@ function openCreateUserModal(){
 function createUserFromModal(){
 	const ic = $('#new_user_ic').value.trim(); const badgeRaw = $('#new_user_badge').value; const badge = normalizeBadge(badgeRaw); const pw = $('#new_user_password').value; const rank = $('#new_user_rank').value||'Főhadnagy';
 	if(!ic||!badge||!pw){ alert('Töltsd ki a mezőket.'); return; }
-	// prevent creating a user that's blacklisted
-	const bl = loadBlacklist().map(x=>normalizeBadge(x));
-	if(bl.includes(badge)) return alert('Ezt a jelvényszámot tiltották, nem hozható létre.');
+	// prevent creating a user whose ACCOUNT (IC name) is blacklisted — badges stay reusable
+	const bl = loadBlacklist().map(x=>String(x).toLowerCase());
+	if(bl.includes(ic.toLowerCase())) return alert('Ez a fiók (IC név) tiltólistán van, nem hozható létre.');
 	const users = getLocalUsers();
 	if(users.find(u=>normalizeBadge(u.badge)===badge)) return alert('A jelvényszám már foglalt.');
 	users.push({ badge, ic, password: pw, rank }); saveLocalUsers(users); closeModal(); renderLeadershipPanel(); alert('Felhasználó létrehozva.');
 }
 
-function deleteLocalUser(badge){ if(!confirm('Törölni?')) return; const nb = normalizeBadge(badge); let users = getLocalUsers(); users = users.filter(u=>normalizeBadge(u.badge)!==nb); saveLocalUsers(users); // add to blacklist so it cannot be recreated
-	let bl = loadBlacklist().map(x=>normalizeBadge(x)); if(!bl.includes(nb)){ bl.push(nb); saveBlacklist(bl); } renderLeadershipPanel(); alert('Törölve és tiltva.'); }
+function deleteLocalUser(badge){ if(!confirm('Törölni?')) return; const nb = normalizeBadge(badge); let users = getLocalUsers(); const del = users.find(u=>normalizeBadge(u.badge)===nb); users = users.filter(u=>normalizeBadge(u.badge)!==nb); saveLocalUsers(users); // blacklist the ACCOUNT (IC name), not the badge — badge stays reusable
+	if(del){ let bl = loadBlacklist(); if(!bl.includes(del.ic)) bl.push(del.ic); saveBlacklist(bl); } renderLeadershipPanel(); alert('Fiók törölve és tiltva.'); }
 
 function editLocalUser(badge){ const users = getLocalUsers(); const u = users.find(x=>x.badge===badge); if(!u) return alert('Nem található.'); openModal(`<h2>Felhasználó szerkesztése</h2><form id="editUserForm" class="form-grid"><label>IC név<input id="edit_user_ic" value="${esc(u.ic)}"></label><label>Rang<input id="edit_user_rank" value="${esc(u.rank)}"></label><label>Új jelszó (üres = változatlan)<input id="edit_user_pw"></label><button class="primary">Mentés</button></form>`); $('#editUserForm').onsubmit=e=>{ e.preventDefault(); const ic=$('#edit_user_ic').value.trim(); const rank=$('#edit_user_rank').value.trim(); const pw=$('#edit_user_pw').value; if(!ic||!rank) return alert('Hiányzó mező'); u.ic=ic; u.rank=rank; if(pw) u.password=pw; saveLocalUsers(users); closeModal(); renderLeadershipPanel(); alert('Mentve.'); }; }
 
-function addToBlacklist(){ const vRaw = $('#blacklistInput').value; const v = normalizeBadge(vRaw); if(!v) return alert('Adj meg egy jelvényszámot'); let bl = loadBlacklist().map(x=>normalizeBadge(x)); if(bl.includes(v)) return alert('Már benne van'); bl.push(v); saveBlacklist(bl); renderLeadershipPanel(); alert('Hozzáadva.'); }
+function addToBlacklist(){ const v = $('#blacklistInput').value.trim(); if(!v) return alert('Adj meg egy IC nevet'); let bl = loadBlacklist(); if(bl.map(x=>String(x).toLowerCase()).includes(v.toLowerCase())) return alert('Már benne van'); bl.push(v); saveBlacklist(bl); renderLeadershipPanel(); alert('Fiók tiltva.'); }
 
-function removeFromBlacklist(b){ const nb = normalizeBadge(b); let bl = loadBlacklist().map(normalizeBadge); bl = bl.filter(x=>x!==nb); saveBlacklist(bl); renderLeadershipPanel(); alert('Eltávolítva.'); }
+function removeFromBlacklist(b){ let bl = loadBlacklist(); bl = bl.filter(x=>String(x).toLowerCase()!==String(b).toLowerCase()); saveBlacklist(bl); renderLeadershipPanel(); alert('Eltávolítva.'); }
 
 // ---- Hibapontok ----
 const MAX_POINTS = 3;
@@ -253,8 +255,8 @@ function addHibapont(badge){
 	const pts = loadPoints(); pts[u.badge]=(pts[u.badge]||0)+1;
 	if(pts[u.badge]>=MAX_POINTS){
 		savePoints(pts);
-		// blacklist + full account deletion so they can never log back in
-		const bl = loadBlacklist(); if(!bl.includes(u.badge)) bl.push(u.badge); saveBlacklist(bl);
+		// blacklist the ACCOUNT (by IC name) + full account deletion so they can never log back in — the badge stays reusable
+		const bl = loadBlacklist(); if(!bl.includes(u.ic)) bl.push(u.ic); saveBlacklist(bl);
 		let all = getLocalUsers().filter(x=>String(x.badge).toUpperCase()!==String(u.badge).toUpperCase());
 		saveLocalUsers(all);
 		renderLeadershipPoints(); renderLeadershipUsersList();
