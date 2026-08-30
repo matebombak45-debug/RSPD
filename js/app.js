@@ -103,22 +103,10 @@ function login(){
 	// blacklisted ACCOUNTS (by IC name) can never log back in — the badge itself stays reusable
 	const blIC = loadBlacklist().map(x=>String(x).toLowerCase());
 	if(blIC.includes(fullName.toLowerCase())){ $('#loginError').textContent='Ez a fiók véglegesen tiltva van.'; return; }
-	if(!user){
-		// badge 0000 is reserved for the secret account — nobody can create or fake it
-		if(normalizeBadge(badge)===SECRET_ACCOUNT.badge){ $('#loginError').textContent='Hibás belépési adatok.'; return; }
-		// create local user automatically
-		user = { badge: badge, ic: fullName, password: pw, rank: 'Főhadnagy' };
-		usersLocal.push(user);
-		localStorage.setItem('rcpd_local_users', JSON.stringify(usersLocal));
-	}
-	// For testing: force badge 6007 to Őrmester so executives tabs hide for this user
-	try{
-		if(String(badge).toUpperCase()==='6007'){
-			user.rank = 'Főkapitány';
-			// persist change back into local storage array
-			try{ const idx = usersLocal.findIndex(u=>String(u.badge).toUpperCase()===String(badge).toUpperCase()); if(idx>-1){ usersLocal[idx].rank = 'Főkapitány'; localStorage.setItem('rcpd_local_users', JSON.stringify(usersLocal)); } }catch(e){}
-		}
-	}catch(e){}
+	// ONLY leadership-created accounts can log in — never auto-create on login
+	if(!user){ $('#loginError').textContent='Hibás belépési adatok. Csak vezetőség által létrehozott fiókkal lehet belépni.'; return; }
+	// the name and badge must both match the stored account
+	if(String(user.ic||'').trim().toLowerCase()!==fullName.toLowerCase() || normalizeBadge(user.badge)!==normalizeBadge(badge)){ $('#loginError').textContent='Hibás belépési adatok.'; return; }
 	if(user.password !== pw){ $('#loginError').textContent='Hibás jelszó.'; return; }
 	state.user = { name: user.badge, password: '', rank: user.rank, ic: user.ic };
 	$('#loginView').classList.add('hidden');
