@@ -1,0 +1,15 @@
+{
+  "name": "rcpd-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node seed-user.js && node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3"
+  }
+}

@@ -1,0 +1,2992 @@
+[
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "12.",
+    "name": "Forgalom feltartása",
+    "bail": "-",
+    "fine": "$180.000 - $230.000",
+    "time": "-",
+    "description": "Forgalom Feltartásának minősül minden olyan cselekedet mely az úttest valamely forgalmi sávjában történő egyenletes haladást, vagy előzést indokolatlanul hátráltatja vagy megakadályozza.",
+    "abbr": "FF"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "13.",
+    "name": "Gondatlan vezetés",
+    "bail": "-",
+    "fine": "$275.000 - $350.000",
+    "time": "-",
+    "description": "Aki a közúti közlekedés szabályainak megszegésével közúton vagy közforgalom elől el nem zárt magánúton más vagy mások életét vagy testi épségét veszélynek tenné ki, viszont az adott helyzetben ez a forgalom sűrűsége vagy bármilyen egyéb ok miatt nem áll fent.\nNem osztható együtt a \"Közúti veszélyeztetés\" tétellel.",
+    "abbr": "GV"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "14.",
+    "name": "Jogosítvány nélküli vezetés",
+    "bail": "-",
+    "fine": "$250.000 - $375.000",
+    "time": "-",
+    "description": "Aki járművet vezetői engedély nélkül vagy lejárt vezetői engedéllyel közúti forgalomban használ. Szintén büntetendő amennyiben a jármű vezetője rendelkezik érvényes engedéllyel azonban azt nem tudja bemutatni ellenőrzéskor.\nBevont vezetői engedély esetében \"Járművezetés eltiltás alatt\" tételt kell alkalmazni.\nMotoros roller esetében nem alkalmazható.",
+    "abbr": "JNV"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "15.",
+    "name": "Állami szervezet tulajdonának megrongálása",
+    "bail": "-",
+    "fine": "$250.000 - $450.000",
+    "time": "-",
+    "description": "Az a személy aki szándékosan vagy gondatlanságból állami tulajdont rongál meg.",
+    "abbr": "ÁSZTM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "16.",
+    "name": "Bukósisak nélküli motor vezetés",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Közúti közlekedésben motoros rollerre is vonatkozik.",
+    "abbr": "BNMV"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "17.",
+    "name": "Jobbratartási kötelezettség megszegése",
+    "bail": "-",
+    "fine": "$100.000 - $150.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "JKM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "18.",
+    "name": "Kanyarodási szabályok megszegése",
+    "bail": "-",
+    "fine": "$100.000 - $150.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KSZM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "19.",
+    "name": "Fényszóró használatának elmulasztása",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Fényszóró használata este 6 és reggel 6 óra valamint rossz látási viszonyok között kötelező.",
+    "abbr": "FHE"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "20.",
+    "name": "Kanyarodási szándék jelzésének elmulasztása",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KSZJE"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "21.",
+    "name": "Körforgalmú útrend megsértése",
+    "bail": "-",
+    "fine": "$200.000 - $300.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KUM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "22.",
+    "name": "Biztonsági öv becsatolásának elmulasztása",
+    "bail": "-",
+    "fine": "$100.000 - $150.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "BÖE"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "23.",
+    "name": "Mobiltelefon használata vezetés közben",
+    "bail": "-",
+    "fine": "$250.000 - $320.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "MHV"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "24.",
+    "name": "Autópálya leállósávján történő haladás",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Nem büntetendő amennyiben műszaki hibás járművel az első lehajtóig / kijáratig csökkentett sebességgel halad.",
+    "abbr": "ALTH"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "25.",
+    "name": "Tilos jelzésen való áthaladás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki a közúti jelzőlámpa, vagy a forgalmat irányító rendőr tárcsával adott jelzéseinek nem tesz eleget.",
+    "abbr": "TJV"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "25.1",
+    "name": "- Közúti jelzőlámpa esetében",
+    "bail": "-",
+    "fine": "$250.000 - $350.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "TJVÁ"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "25.2",
+    "name": "- Vasúti átjáró esetében",
+    "bail": "-",
+    "fine": "$300.000 - $350.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "VTJVÁ"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "26.",
+    "name": "Behajtási tilalom megsértése",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "BTM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "27.",
+    "name": "Kötelező haladási irány megsértése",
+    "bail": "-",
+    "fine": "$20.000 - $250.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KHIM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "28.",
+    "name": "Elsőbbségadás elmulasztása",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "Nem osztható együtt a \"STOP Tábla elmulasztása\" tétellel.",
+    "abbr": "ESH"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "29.",
+    "name": "STOP Tábla figyelmen kívül hagyása",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "Nem osztható együtt az \"Elsőbbségadás elmulasztása\" tétellel.",
+    "abbr": "STFK"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "30.",
+    "name": "Előzés szabályainak megsértése",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "ESM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "31.",
+    "name": "Tilosban parkolás",
+    "bail": "-",
+    "fine": "$100.000 - $150.000",
+    "time": "-",
+    "description": "[https://pastebin.com/2LMrFysf](https://pastebin.com/2LMrFysf)",
+    "abbr": "TP"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "32.",
+    "name": "Parkolási rendelet megsértése",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Aki a Parkolási Rendeletben foglaltakat megsérti.",
+    "abbr": "TPRM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "33.",
+    "name": "Kötelező felszerelés hiánya",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "Kötelező felszerelések: Elsősegély doboz, Kötszer \nAmennyiben az időjárási viszonyok megkövetelik, téli gumi. \nA téli gumi ellenőrzése csak mélységi ellenőrzés során engedélyezett (határellenőrzés). \nMotoros roller esetében nem alkalmazható.",
+    "abbr": "KFH"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "34.",
+    "name": "Forgalmi engedély hiánya",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "A gépjármű nem rendelkezik érvényes forgalmi engedéllyel, vagy annak meglétét a jármű sofőre nem tudja igazolni.\nGépjármű ez esetben nem tárolható főútvonalon, mellékútvonalon, közterületen kialakított parkolóban.\nMűszaki adatlap kiállításától 1 nap türelmi idő van a forgalmi engedély kiváltására.\nA gépjármű eltávolításáról a Rendőrség jogosult minden esetben a tulajdonos költségére.\nMotoros roller esetében nem alkalmazható.",
+    "abbr": "FEH"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "35.",
+    "name": "Lejárt forgalmi engedély",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "A gépjármű rendelkezik forgalmi engedéllyel azonban az érvényességi ideje lejárt.\nGépjármű ez esetben nem tárolható főútvonalon, mellékútvonalon, közterületen kialakított parkolóban.\nA gépjármű eltávolításáról a Rendőrség jogosult minden esetben a tulajdonos költségére.\nMotoros roller esetében nem alkalmazható.",
+    "abbr": "LFEH"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "36.",
+    "name": "Érvénytelen forgalmi engedély",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "A gépjármű rendelkezik forgalmi engedéllyel, azonban az abban leírt dolgok immáron nem aktuálisak.\n(Pl. Más a kocsi színe, Tulajdonos váltás, Tuning változtatás stb.)\nAmennyiben csak tulajdonos váltás történt és az összes többi adat megfelelő úgy a türelmi idő 3 nap.\nMotoros roller esetében nem alkalmazható.\nGépjármű ez esetben nem tárolható főútvonalon, mellékútvonalon, közterületen kialakított parkolóban.",
+    "abbr": "ÉFEH"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "37.",
+    "name": "Rongált járművel való közlekedés",
+    "bail": "-",
+    "fine": "$50.000 - $100.000",
+    "time": "-",
+    "description": "Aki járművét sérült karosszéria elemekkel használja. \n(Lökhárítók, Ajtók, Csomagtartó, Motorháztető Lámpák) \nAz alap bírságon felül elemenként 10000$. \nNem osztható együtt a \"Nem megfelelő műszaki állapotú jármű használata\" tétellel.",
+    "abbr": "RJVK"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "38.",
+    "name": "Nem megfelelő műszaki állapotú jármű használata",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Aki nem megfelelő műszaki állapotú járművet használ.\n(Műszaki vizsgán nem felelne meg a jármű valamilyen hiba okán)\nNem osztható együtt a \"Rongált járművel való közlekedés\" tétellel.",
+    "abbr": "NMJVK"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "35.",
+    "name": "KRESZ Szabálypont megsértése",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "Minden olyan egyéb a KPM-BM rendelet alapján hatályos szabály melyre ez a törvény nem tér ki.",
+    "abbr": "KSZTM"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "36.",
+    "name": "Járműre szerelt illegális alkatrész",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "-",
+    "abbr": "IAGSZ"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "36.1",
+    "name": "- Színes fényszóró",
+    "bail": "-",
+    "fine": "$75.000 - $100.000",
+    "time": "-",
+    "description": "Kizárólag a műszaki vizsga előírásaiban engedélyezett fényszóró szerelhető fel.",
+    "abbr": "IAGSZF"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "36.2",
+    "name": "- Neon",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Tilos a járműre szerelt neoncsövet közúti közlekedésben vagy közforgalom elől el nem zárt magánúton menet közben használni. \nKivétel: Vezérkar engedélye esetén kiemelt események helyszínén és útvonalán.",
+    "abbr": "IAGSZN"
+  },
+  {
+    "group": "I. KÖZLEKEDÉSI SZABÁLYSÉRTÉSEK",
+    "id": "36.3",
+    "name": "- Nitro",
+    "bail": "-",
+    "fine": "$250.000 - 350.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "IAGSZO"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "37.",
+    "name": "Személyazonosító igazolvány hiánya",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "SZIH"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "38.",
+    "name": "Csendháborítás",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Lakossági panasz esetén este 22 óra és reggel 8 óra között.",
+    "abbr": "CSB"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "39.",
+    "name": "Közrend megzavarása",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "Aki közterületen az alapvető viselkedési normákat nem tartja be, vagy koldul. \nNem osztható együtt a \"Garázdaság\" tétellel.",
+    "abbr": "KMR"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "40.",
+    "name": "Rendőrrel szembeni tiszteletlenség",
+    "bail": "-",
+    "fine": "$350.000 - $400.000",
+    "time": "-",
+    "description": "Aki rendőrt, katonát egyéb hivatalos személyt sérteget. \nAlap büntetésen felül esetenként 2000$ bírságot kell számolni.",
+    "abbr": "RSZT"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "41.",
+    "name": "Közvagyon megrongálása",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "Aki oszlopot, póznát, buszmegállót rongál meg. \nMinden más tárgy esetében a \"Rongálás\" tételt kell alkalmazni.",
+    "abbr": "KM"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "42.",
+    "name": "Engedély Nélküli Horgászat",
+    "bail": "-",
+    "fine": "$150.000 - $250.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "ENH"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "43.",
+    "name": "Diszkrimináció",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki mást faji, vallási, szexuális, vagy bármilyen más hovatartozása miatt hátrányosan kezel.",
+    "abbr": "DK"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "43.1",
+    "name": "- Magánszemélyként",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "DKM"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "43.2",
+    "name": "- Cégként",
+    "bail": "-",
+    "fine": "$300.000 - $450.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "DKC"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "44.",
+    "name": "Állami szerv indokolatlan hívása",
+    "bail": "-",
+    "fine": "$400.000 - $500.000",
+    "time": "-",
+    "description": "Aki állami szervezetet indokolatlanul hív ki egy helyszínre, vagy aki az indokolatlanná válászt követően hívását nem mondja le.",
+    "abbr": "ÁSZIH"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "45.",
+    "name": "Megengedettnél több fegyver tartása",
+    "bail": "-",
+    "fine": "$550.000 - $750.000",
+    "time": "-",
+    "description": "Aki fegyvereit engedéllyel és azokat bejelentve tartja, azonban egy adott típusból (lőfegyver/kézifegyver) 1 darabnál több van nála egy időben. \nA limit alól mentesül az aki a bejelentési procedúra végett annak idejére tart magánál többet.",
+    "abbr": "MTF"
+  },
+  {
+    "group": "II. SZABÁLYSÉRTÉSEK",
+    "id": "46.",
+    "name": "Megengedettnél több töltény tartása",
+    "bail": "-",
+    "fine": "$25.000 / plusz töltény (db)",
+    "time": "-",
+    "description": "Aki a fegyveréhez tartozó töltényt engedéllyel tartja, azonban 45 darabnál több van nála egy időben.",
+    "abbr": "MTT"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "47.",
+    "name": "Közúti baleset okozása",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki a közúti közlekedési szabályainak megsértésével másnak vagy másoknak gondatlanságból kárt okoz. \nAz intézkedő személy saját belátása szerint dönthet a járművezetői engedély bevonásáról.",
+    "abbr": "KBO"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "47.1",
+    "name": "- Személyi sérülés nélkül",
+    "bail": "-",
+    "fine": "$200.000 - $250.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KBOSN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "47.2",
+    "name": "- Személyi sérüléssel",
+    "bail": "-",
+    "fine": "$300.000 - $400.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KBOS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "47.3",
+    "name": "- Halálesetkor",
+    "bail": "✔️",
+    "fine": "$650.000 - $800.000",
+    "time": "30 - 40 perc",
+    "description": "-",
+    "abbr": "KBOH"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "48.",
+    "name": "Járművezetés eltiltás alatt",
+    "bail": "❌",
+    "fine": "$500.000 - $650.000",
+    "time": "30 - 45 perc",
+    "description": "Akinek a hatóság korábban bevonta a járművezetői engedélyét, nem tett újra vizsgát és közúti járművet vezet.",
+    "abbr": "JEA"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.",
+    "name": "Garázdaság",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan kihívóan közösségellenes, erőszakos magatartást tanúsít, amely alkalmas arra, hogy másokban megbotránkozást vagy riadalmat keltsen. \nNem osztható együtt a \"Közrend megzavarása\" tétellel.",
+    "abbr": "GR"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.1",
+    "name": "- Egyedül",
+    "bail": "-",
+    "fine": "$200.000 - $350.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "GRM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.2",
+    "name": "- Csoportosan",
+    "bail": "✔️",
+    "fine": "$450.000 - $500.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "GRCS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.3",
+    "name": "- Köznyugalmat súlyosan megzavarva",
+    "bail": "✔️",
+    "fine": "$500.000 - $600.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "GRKSM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.4",
+    "name": "- Felfegyverkezve",
+    "bail": "✔️",
+    "fine": "$700.000 - $750.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "GRFF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.5",
+    "name": "- Fegyveresen",
+    "bail": "❌",
+    "fine": "$850.000 - $1.000.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "GRF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "49.6",
+    "name": "- Nyílvános rendezvényen",
+    "bail": "❌",
+    "fine": "$1.000.000 - $1.250.000",
+    "time": "60 - 80 perc",
+    "description": "-",
+    "abbr": "GRNYR"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "50.",
+    "name": "Szeméremsértés",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "30 perc",
+    "description": "Aki magát nemi vágyának felkeltése vagy kielégítése céljából más előtt szeméremsértő módon mutogatja.",
+    "abbr": "KSZS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "51.",
+    "name": "Hatóság félrevezetése",
+    "bail": "✔️",
+    "fine": "$500.000 - $600.000",
+    "time": "45 perc",
+    "description": "Aki szándékosan valótlant állít a hatóság irányába.",
+    "abbr": "HF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "52.",
+    "name": "Rendőr előli menekülés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki a hatóság utasításának ellenére nem áll meg, vagy jogszerű intézkedés alól próbálja kivonni magát. \nElegendő utasításnak minősül a rendőr forgalomirányító tárcsával történő jelzése kialakított ellenőrzőpontokon, és határátkelőkön.",
+    "abbr": "REM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "52.1.",
+    "name": "- Járművel",
+    "bail": "✔️",
+    "fine": "$350.000 - $500.000",
+    "time": "30 perc",
+    "description": "-",
+    "abbr": "REMJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "52.2",
+    "name": "- Gyalogosan",
+    "bail": "✔️",
+    "fine": "$300.000 - $350.000",
+    "time": "20 perc",
+    "description": "-",
+    "abbr": "REMGY"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "53.",
+    "name": "Rendőri utasítás megszegése",
+    "bail": "✔️",
+    "fine": "$200.000 - $250.000",
+    "time": "30 perc",
+    "description": "Aki közúti közlekedés során az 1. felszólítást követően vagy intézkedés / területbiztosítás esetében a 2. felszólítást követően sem tesz eleget a hatóság utasításának. \nTerületbiztosítás során nem szólítható fel az aki nem lépett lezárt területre.",
+    "abbr": "RUM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "54.",
+    "name": "Hivatalos személy elleni erőszak",
+    "bail": "❌",
+    "fine": "$600.000 - $750.000",
+    "time": "45 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "HSZEE"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.",
+    "name": "Lopás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "-",
+    "abbr": "LP"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.1",
+    "name": "- Szabálysértési értékre (1$ - 10.000$)",
+    "bail": "✔️",
+    "fine": "$50.000 - $75.000",
+    "time": "20 perc",
+    "description": "-",
+    "abbr": "LPSÉ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.2",
+    "name": "- Kis értékre (10.001$ - 45.000$)",
+    "bail": "✔️",
+    "fine": "$75.000 - $100.000",
+    "time": "30 perc",
+    "description": "-",
+    "abbr": "LPK"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.3",
+    "name": "- Nagy értékre (45.001$ - 100.000$)",
+    "bail": "✔️",
+    "fine": "$120.000 - $180.000",
+    "time": "45 perc",
+    "description": "-",
+    "abbr": "LPN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.4",
+    "name": "- Jelentős értékre (100.001$ - 200.000$)",
+    "bail": "✔️",
+    "fine": "$250.000 - $300.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "LPJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.5",
+    "name": "- Különösen nagy értékre (200.001$ - 500.000$)",
+    "bail": "❌",
+    "fine": "$600.000 - $750.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "LPKN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "55.6.",
+    "name": "- Különösen jelentős értékre (500.001$ és felette)",
+    "bail": "❌",
+    "fine": "$1.000.000 - $1.500.000",
+    "time": "75 - 100 perc",
+    "description": "-",
+    "abbr": "LPKJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.",
+    "name": "Csalás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki jogtalan haszonszerzés végett mást tévedésbe ejt, vagy tévedésben tart, és ezzel kárt okoz. (Pl. Pénzduplázás)",
+    "abbr": "CSLS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.1",
+    "name": "- Szabálysértési értékre (1$ - 10.000$)",
+    "bail": "✔️",
+    "fine": "$50.000 - $100.000",
+    "time": "20 perc",
+    "description": "-",
+    "abbr": "CSLSÉ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.2",
+    "name": "- Kis értékre (10.001$ - 45.000$)",
+    "bail": "✔️",
+    "fine": "$100.000 - $150.000",
+    "time": "20 - 30 perc",
+    "description": "-",
+    "abbr": "CSK"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.3",
+    "name": "- Nagy értékre (45.001$ - 100.000$)",
+    "bail": "✔️",
+    "fine": "$150.000 - $200.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "CSN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.4",
+    "name": "- Jelentős értékre (100.001$ - 200.000$)",
+    "bail": "✔️",
+    "fine": "$300.000 - $350.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "CSJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.5",
+    "name": "- Különösen nagy értékre (200.001$ - 500.000$)",
+    "bail": "✔️",
+    "fine": "$600.000 - $750.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "CSKN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "56.6",
+    "name": "- Különösen jelentős értékre (500.001$ és felette)",
+    "bail": "❌",
+    "fine": "$1.000.000 - $1.500.000",
+    "time": "90 perc",
+    "description": "-",
+    "abbr": "CSKJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "57.",
+    "name": "Magánlaksértés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki más lakásába, egyéb helyiségébe vagy ezekhez tartozó bekerített helyre jogosulatlanul bemegy, illetve ott bent marad.",
+    "abbr": "MLS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "57.1",
+    "name": "- Egyedül",
+    "bail": "✔️",
+    "fine": "$250.000",
+    "time": "30 - 40 perc",
+    "description": "-",
+    "abbr": "MLSM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "57.2",
+    "name": "- Csoportosan",
+    "bail": "✔️",
+    "fine": "$250.000 - $450.000",
+    "time": "40 - 60 perc",
+    "description": "-",
+    "abbr": "MLSCS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "57.3",
+    "name": "- Éjjel",
+    "bail": "✔️",
+    "fine": "$450.000 - $550.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "MLSÉ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "57.4",
+    "name": "- Felfegyverkezve",
+    "bail": "✔️",
+    "fine": "$500.000 - $600.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "MLSFF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "57.5",
+    "name": "- Fegyveresen",
+    "bail": "✔️",
+    "fine": "$550.000 - $750.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "MLSF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "58.",
+    "name": "Testi sértés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "-",
+    "abbr": "TS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "58.1",
+    "name": "- Könnyű (8 napon belül gyógyuló sérülés)",
+    "bail": "✔️",
+    "fine": "$150.000 - $200.000",
+    "time": "0 - 45 perc",
+    "description": "-",
+    "abbr": "TSK"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "58.2",
+    "name": "- Súlyos (8 napon túl gyógyuló sérülés)",
+    "bail": "❌",
+    "fine": "$350.000 - $450.000",
+    "time": "30 - 60 perc",
+    "description": "-",
+    "abbr": "TSS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "59.",
+    "name": "Engedély nélküli behatolás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki lezárt, rendvédelmi vagy honvédelmi területre engedély nélkül megy be vagy engedély nélkül bent marad.",
+    "abbr": "ENB"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "59.1",
+    "name": "- Lezárt területre",
+    "bail": "✔️",
+    "fine": "$150.000 - $200.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "ENBL"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "59.2",
+    "name": "- Rendvédelmi területre",
+    "bail": "✔️",
+    "fine": "$300.000 - $450.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "ENBR"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "59.3",
+    "name": "- Honvédelmi területre",
+    "bail": "✔️",
+    "fine": "$500.000 - $650.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "ENBH"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "60.",
+    "name": "Pirotechnikai eszköz forgalmazása / felhasználása",
+    "bail": "✔️",
+    "fine": "$100.000 - $150.000",
+    "time": "0 - 30 perc",
+    "description": "Pirotechnikai eszköz (pl. petárda, tüzijáték stb.) hatósági engedély nélkül felhasználható minden év November 20 - Január 20 között. \nEzen eszközök árusítása kizárólag külön engedéllyel rendelkező boltok számára engedélyezett. \nRendezvényekhez és egyéb magánünnepségekhez a fenti időponton kívül a Katasztrófavédelem adhat engedélyt felhasználásra.",
+    "abbr": "PFJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "61.",
+    "name": "Személyes adattal való visszaélés",
+    "bail": "✔️",
+    "fine": "$100.000 - $250.000",
+    "time": "30 - 45 perc",
+    "description": "Aki a személyes adatok védelméről / kezeléséről nem megfelelően gondoskodik, azokat a céltól eltérően kezeli vagy olyan személy részére bocsájt ki adatot mely egy személyt / céget hátrányosan érint.",
+    "abbr": "SZAVV"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "62.",
+    "name": "Zaklatás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki abból a célból, hogy mást megfélemlítsen, vagy más magánéletébe, illetve mindennapi életvitelébe önkényesen zavaróan beavatkozzon.",
+    "abbr": "ZK"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "62.1",
+    "name": "- Egyedül",
+    "bail": "✔️",
+    "fine": "$75.000 - $150.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "ZKM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "62.2",
+    "name": "- Csoportosan",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "ZKCS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "62.3",
+    "name": "- Hozzátartozó fenyegetésével",
+    "bail": "✔️",
+    "fine": "$300.000 - $450.000",
+    "time": "30 - 60 perc",
+    "description": "-",
+    "abbr": "ZKHF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "62.4",
+    "name": "- Hatalmi / befolyási helyzettel visszaélve",
+    "bail": "❌",
+    "fine": "$600.000 - $750.000",
+    "time": "60 - 80 perc",
+    "description": "-",
+    "abbr": "ZKHB"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "63.",
+    "name": "Rágalmazás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki valakiről más előtt a becsület csorbítására alkalmas tényt állít, híresztel vagy ilyen tényre közvetlenül utaló kifejezést használ. Büntetendő továbbá aki a becsület csorbítására alkalmas hang, videófelvételt, dokumentumot állít elő.\nNem büntethető az, aki valós tényt állít.",
+    "abbr": "RG"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "63.1",
+    "name": "- Magában",
+    "bail": "-",
+    "fine": "$250.000 - $300.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "RGM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "63.2",
+    "name": "- Aljas célból",
+    "bail": "✔️",
+    "fine": "$350.000 - $400.000",
+    "time": "30 perc",
+    "description": "-",
+    "abbr": "RGA"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "63.3",
+    "name": "- Nagy nyílvánosság előtt",
+    "bail": "✔️",
+    "fine": "$500.000 - $550.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "RGN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "63.4",
+    "name": "- Jelentős érdeksérelmet okozva",
+    "bail": "✔️",
+    "fine": "$650.000 - $800.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "RGJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "64.",
+    "name": "Hamis vád",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki mást hatóság előtt vétség vagy bűncselekmény elkövetésével hamisan vádol.",
+    "abbr": "HV"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "64.1",
+    "name": "- Gondatlanságból",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "HVG"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "64.2",
+    "name": "- Szándékosan",
+    "bail": "✔️",
+    "fine": "$250.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "HVSZ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "64.3",
+    "name": "- Amennyiben elítélik a sértettet",
+    "bail": "✔️",
+    "fine": "$300.000 - $450.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "HVAS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "64.4",
+    "name": "- Hamis bizonyítékot előállítva",
+    "bail": "❌",
+    "fine": "$500.000 - $650.000",
+    "time": "60 - 90 perc",
+    "description": "-",
+    "abbr": "HVHB"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "65.",
+    "name": "Hatósági eljárás megzavarása",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "0 - 45 perc",
+    "description": "Aki magatartásával a hatóság eljárását megzavarja, akadályozza vagy meghiúsítja és ezt a tevékenységét felszólítást követően sem hagyja abba.",
+    "abbr": "HEM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "66.",
+    "name": "Zugírászat",
+    "bail": "✔️",
+    "fine": "$550.000 - $800.000",
+    "time": "60 - 80 perc",
+    "description": "Aki jogosulatlanul és/vagy üzletszerűen ügyvédi, szabadalmi ügyvivői vagy közjegyzői tevékenységet végez. \nMinden ilyen jellegű irodát a Nemzeti Adó- és Vámhivatal Adóügyi osztályán be kell jelenteni.",
+    "abbr": "ZÍ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "67.",
+    "name": "Segítségnyújtás elmulasztása",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki nem nyújt tőle elvárható segítséget sérült vagy olyan személynek, akinek az élete vagy testi épsége közvetlen veszélyben van.",
+    "abbr": "SNE"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "67.1",
+    "name": "- Magában",
+    "bail": "✔️",
+    "fine": "$100.000 - $150.000",
+    "time": "15 - 30 perc",
+    "description": "-",
+    "abbr": "SNEM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "67.2",
+    "name": "- Halálesetkor",
+    "bail": "✔️",
+    "fine": "$250.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "SNEH"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "68.",
+    "name": "Rendbontás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki nyilvános rendezvény vagy gyűlés szervezőjének vagy rendezőjének a rend fenntartása érdekében tett jogszerű intézkedésével szemben ellenállást tanúsít.",
+    "abbr": "RNB"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "68.1",
+    "name": "- Egyedül",
+    "bail": "✔️",
+    "fine": "$150.000 - $200.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "RNBM"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "68.2",
+    "name": "- Csoportosan",
+    "bail": "✔️",
+    "fine": "$250.000 - $300.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "RNBCS"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "68.3",
+    "name": "- Felfegyverkezve",
+    "bail": "✔️",
+    "fine": "$350.000 - $450.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "RNBFF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "68.4",
+    "name": "- Fegyveresen",
+    "bail": "❌",
+    "fine": "$500.000 - $600.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "RNBF"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.",
+    "name": "Rongálás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki idegen vagyontárgy megsemmisítésével vagy megrongálásával kárt okoz, és a kárt nem hajlandó / tudja megtéríteni.",
+    "abbr": "RNG"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.1",
+    "name": "- Szabálysértési értékre (1$ - 10.000$)",
+    "bail": "-",
+    "fine": "$50.000 - $75.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "RNGSÉ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.2",
+    "name": "- Kis értékre (10.001$ - 45.000$)",
+    "bail": "✔️",
+    "fine": "$100.000 - $150.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "RNGK"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.3",
+    "name": "- Nagy értékre (45.001$ - 100.000$)",
+    "bail": "✔️",
+    "fine": "$200.000 - $225.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "RNGN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.4",
+    "name": "- Jelentős értékre (100.001$ - 200.000$)",
+    "bail": "✔️",
+    "fine": "$250.000 - $350.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "RNGJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.5",
+    "name": "- Különösen nagy értékre (200.001$ - 500.000$)",
+    "bail": "✔️",
+    "fine": "$650.000 - $800.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "RNGKN"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.6",
+    "name": "- Különösen jelentős értékre (500.001$ és felette)",
+    "bail": "✔️",
+    "fine": "$700.000 - $1.500.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "RNGKJ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "69.7",
+    "name": "- Graffiti esetében",
+    "bail": "-",
+    "fine": "$250.000 - $350.000",
+    "time": "-",
+    "description": "Kivétel kijelölt graffiti falak esetében.",
+    "abbr": "RNGG"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "70.",
+    "name": "Illegális anyagok gyártásának előkészülete",
+    "bail": "✔️",
+    "fine": "$400.000 - $550.000",
+    "time": "30 - 50 perc",
+    "description": "Aki olyan anyagok gyártására tesz előkészületet melyet a törvény tilt vagy olyan anyagot próbál készíteni melynek gyártása engedélyköteles. (Pl. Kábítószer,Gyógyszer stb.) \nIde sorolandó ezen illegális vagy engedélyköteles anyagok tervrajzainak birtoklása is. ((Blueprint))",
+    "abbr": "IAE"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "71.",
+    "name": "Kiszolgáltatott személy megalázása",
+    "bail": "❌",
+    "fine": "$500.000 - $750.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "KSZA"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "72.",
+    "name": "Okirattal visszaélés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki egy vagy több olyan közokiratot, amely nem vagy nem kizárólag a sajátja megszerez, megsemmisít, megrongál vagy tulajdonosa elől eltitkolja. Büntetendő továbbá bármilyen okirat átruházása másra, azok árusítása. \n(Amennyiben az iratot használta, az Okirathamisítás vádpontot kell alkalmazni!)",
+    "abbr": "OV"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "72.1",
+    "name": "- Irat birtoklása",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "OVB"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "72.2",
+    "name": "- Irat árusítása",
+    "bail": "✔️",
+    "fine": "$600.000 - $850.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "OVÁ"
+  },
+  {
+    "group": "III. VÉTSÉGEK",
+    "id": "73.",
+    "name": "Közösség elleni uszítás",
+    "bail": "✔️",
+    "fine": "$500.000 - $650.000",
+    "time": "45 - 60 perc",
+    "description": "Aki nagy nyilvánosság előtt a nemzet, valamely nemzeti, etnikai, faji, vallási csoport illetve annak tagja ellen, erőszakra, gyűlöletre uszít.",
+    "abbr": "KEU"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "74.",
+    "name": "Cserbenhagyás",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "60 - 75 perc",
+    "description": "Ha a közlekedési balesettel érintett jármű vezetője a helyszínen nem áll meg, illetve onnan eltávozik, mielőtt meggyőződne arról, hogy valaki megsérült-e, illetve az életét vagy testi épségét közvetlenül fenyegető veszély miatt segítségnyújtásra szorul-e.\nAmennyiben az illető meggyőződött arról, hogy segítségnyújtásra van szükség ám ennek érdekében semmit sem tett, úgy a \"\"Segítségnyújtás elmulasztása\"\" tételt kell alkalmazni.\nKörözés kizárólag csak akkor adható ki, amennyiben terhelő bizonyíték van az elkövetővel szemben. (Videó / Kép)",
+    "abbr": "CSH"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "75.",
+    "name": "Közúti veszélyeztetés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki a közúti közlekedés szabályainak megszegésével közúton vagy közforgalom elől el nem zárt magánúton más vagy mások életét vagy testi épségét közvetlen veszélynek teszi ki.\nIlletve aki a közutat vagy a közúti jelzést megrongálja, beszennyezi vagy a közútra a közlekedés biztonságát, zavartalanságát hátrányosan befolyásoló tárgyat juttat.",
+    "abbr": "KV"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "75.1",
+    "name": "- Személyi sérülés nélkül",
+    "bail": "-",
+    "fine": "$150.000 - $200.000",
+    "time": "-",
+    "description": "Kiemelt közlekedési szabálysértésnek minősül. \nAz intézkedő személy saját belátása szerint dönthet a járművezetői engedély bevonásáról.",
+    "abbr": "KVSN"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "75.2",
+    "name": "- Személyi sérülés esetén",
+    "bail": "✔️",
+    "fine": "$200.000 - $300.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "KVSE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "75.3",
+    "name": "- Halálesetkor",
+    "bail": "✔️",
+    "fine": "$350.000 - $500.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "KVH"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "75.4",
+    "name": "- Akadály létesítés, közúti jelzés eltávolítása",
+    "bail": "-",
+    "fine": "$200.000 - $350.000",
+    "time": "-",
+    "description": "-",
+    "abbr": "KVA"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "76.",
+    "name": "Illegális töltény birtoklás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan lőfegyverhez tartozó töltényt birtokol melynek tartása illegális, vagy engedélyhez kötött, és nem rendelkezik ilyen engedéllyel. \nNem osztható együtt egyéb tételek \"Fegyveresen\" alpontjaival.",
+    "abbr": "ITB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "76.1",
+    "name": "- 9x19mm, .45 ACP töltény",
+    "bail": "✔️",
+    "fine": "$200.000 - $300.000",
+    "time": "20 - 35 perc",
+    "description": "-",
+    "abbr": "ITBK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "76.2",
+    "name": "- Egyéb töltény",
+    "bail": "✔️",
+    "fine": "$350.000 - $500.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "ITBE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "77.",
+    "name": "Illegális töltény árusítás",
+    "bail": "-",
+    "fine": "-",
+    "time": "-",
+    "description": "Aki olyan lőfegyverhez tartozó töltényt árusít melynek tartása illegális vagy engedélyköteles.",
+    "abbr": "ITÁ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "77.1",
+    "name": "- 9x19mm, .45 ACP töltény",
+    "bail": "✔️",
+    "fine": "$350.000 - $400.000",
+    "time": "30 - 50 perc",
+    "description": "-",
+    "abbr": "ITÁK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "77.2",
+    "name": "- Egyéb töltény",
+    "bail": "✔️",
+    "fine": "$450.000 - $600.000",
+    "time": "50 - 70 perc",
+    "description": "-",
+    "abbr": "ITÁE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "78.",
+    "name": "Illegális fegyver birtoklás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan fegyvert birtokol melynek tartása illegális vagy engedélyhez kötött, és nem rendelkezik ilyen engedéllyel vagy az engedélyt nem tudja bemutatni ellenőrzéskor. \nEngedéllyel tartott, azonban nem bejelentett fegyverekre a \"Kötelező bejelentés elmulasztása\" tételt kell alkalmazni! \nNem osztható együtt egyéb tételek \"Fegyveresen\" alpontjaival.",
+    "abbr": "IFB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "78.1",
+    "name": "- Kézifegyver",
+    "bail": "✔️",
+    "fine": "$350.000 - $450.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "IFBKF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "78.2",
+    "name": "- Engedélyköteles fegyverek",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "IFBK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "78.3",
+    "name": "- Egyéb fegyver",
+    "bail": "✔️",
+    "fine": "$500.000 - $850.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "IFBE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "79.",
+    "name": "Fegyveralkatrész",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan fegyveralkatrészt birtokol vagy kínál árusításra melynek tartása illegális, vagy engedélyhez kötött.",
+    "abbr": "IFA"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "79.1",
+    "name": "- Birtoklása",
+    "bail": "✔️",
+    "fine": "$150.000 - $250.000",
+    "time": "0 - 15 perc",
+    "description": "-",
+    "abbr": "IFAB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "79.2",
+    "name": "- Árusítása",
+    "bail": "✔️",
+    "fine": "$350.000 - $500.000",
+    "time": "30 - 60 perc",
+    "description": "-",
+    "abbr": "IFAÁ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "80.",
+    "name": "Kábítószer birtoklás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan kábító, bódító, tudatmódosító szert birtokol melynek tartása illegális vagy engedélyhez kötött.",
+    "abbr": "IKB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "80.1",
+    "name": "- Kis tétel (1-5 gramm / darab)",
+    "bail": "✔️",
+    "fine": "$150.000 - $200.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "IKBK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "80.2",
+    "name": "- Nagy tétel (6-25 gramm / darab)",
+    "bail": "✔️",
+    "fine": "$300.000 - $450.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "IKBN"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "80.3",
+    "name": "- Kereskedői tétel (26 vagy több gramm / darab)",
+    "bail": "✔️",
+    "fine": "$500.000 - $650.000",
+    "time": "45 - 90 perc",
+    "description": "-",
+    "abbr": "IKBT"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "81.",
+    "name": "Kábítószer árusítás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan kábító, bódító, tudatmódosító szert kínál árusításra melynek tartása illegális vagy engedélyhez kötött.",
+    "abbr": "IKÁ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "81.1",
+    "name": "- Kis tétel (1-5 gramm / darab)",
+    "bail": "✔️",
+    "fine": "$250.000 - $350.000",
+    "time": "30 - 50 perc",
+    "description": "-",
+    "abbr": "IKÁK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "81.2",
+    "name": "- Nagy tétel (6-25 gramm / darab)",
+    "bail": "✔️",
+    "fine": "$400.000 - $550.000",
+    "time": "50 - 80 perc",
+    "description": "-",
+    "abbr": "IKÁN"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "81.3",
+    "name": "- Kereskedői tétel (26 vagy több gramm / darab)",
+    "bail": "✔️",
+    "fine": "$750.000 - $900.000",
+    "time": "80 - 100 perc",
+    "description": "-",
+    "abbr": "IKÁT"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "82.",
+    "name": "Kábítószer alkotóelem",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan illegális alkotóelemet birtokol vagy bocsájt árusításra mely kábító, bódító vagy tudatmódosító szer előállításához szükséges. \n(Parazen mag, Marihuana mag, Kokacserje mag, Magic Mushroom spóra, Nyers amfetamin, Nyers metamfetamin)",
+    "abbr": "IKA"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "82.1",
+    "name": "- Birtoklása",
+    "bail": "✔️",
+    "fine": "$150.000 - $250.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "IKAB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "82.2",
+    "name": "- Árusítása",
+    "bail": "✔️",
+    "fine": "$350.000 - $450.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "IKAÁ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "83.",
+    "name": "Kábítószer termesztés",
+    "bail": "✔️",
+    "fine": "$450.000 - $600.000",
+    "time": "45 - 60 perc",
+    "description": "Aki engedély nélkül olyan növényt termeszt, melyből kábító, bódító vagy tudatmódosító szer készíthető. Továbbá büntetendő aki a termesztéshez épületet, személyeket, vagy bármilyen más vagyontárgyat bocsájt rendelkezésre.",
+    "abbr": "IKT"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "84.",
+    "name": "Illegális tárgyak gyártása",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki olyan fegyvert vagy anyagot gyárt melynek tartása illegális, vagy gyártása engedélyhez kötött. Továbbá büntetendő aki a termesztéshez és/vagy előállításhoz épületet, személyeket, vagy bármilyen más vagyontárgyat bocsájt rendelkezésre.",
+    "abbr": "ITGY"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "84.1",
+    "name": "- Fegyver gyártása",
+    "bail": "✔️",
+    "fine": "$400.000 - $550.000",
+    "time": "60 - 90 perc",
+    "description": "-",
+    "abbr": "ITGYF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "84.2",
+    "name": "- Kábítószer gyártása",
+    "bail": "✔️",
+    "fine": "$250.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "ITGYK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "85.",
+    "name": "Katonai felszerelés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki egykoron a Honvédségnek/Rendőrségnek szállított lezárt hadianyagot/felszerelést birtokol és/vagy árusít. \n((Szigeten található ládák))",
+    "abbr": "KAF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "85.1",
+    "name": "- Birtoklása",
+    "bail": "✔️",
+    "fine": "$250.000 - $350.000",
+    "time": "30 - 60 perc",
+    "description": "-",
+    "abbr": "KAFB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "85.2",
+    "name": "- Árusítása",
+    "bail": "✔️",
+    "fine": "$400.000 - $550.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "KAFÁ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "86.",
+    "name": "Kuruzslás",
+    "bail": "✔️",
+    "fine": "$450.000 - $600.000",
+    "time": "0 - 45 perc",
+    "description": "Aki ellenszolgáltatásért vagy rendszeresen az orvosi gyakorlat, az egészségügyi szakképesítéshez kötött pszichoterápiás gyakorlat vagy a nem-konvencionális gyógyító és természetgyógyászati eljárások körébe tartozó tevékenységet jogosulatlanul végez.",
+    "abbr": "KRZS"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "87.",
+    "name": "Embercsempészés",
+    "bail": "✔️",
+    "fine": "$350.000 - $550.000",
+    "time": "30 - 60 perc",
+    "description": "Az a személy aki határ vagy rendvédelmi intézkedés megkerülésének céljából más személyt rejtve, vagy szándékosan az ellenőrzést megkerülve szállít.\n(Légi és vízi úton történő megkerülés is ide sorolandó amennyiben az szándékosan történt)\nBüntetendő továbbá az is aki ezt a tevékenységet bármilyen módon elősegíti.",
+    "abbr": "EMCS"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "88.",
+    "name": "Jármű önkényes elvétele",
+    "bail": "✔️",
+    "fine": "$250.000 - $400.000",
+    "time": "0 - 45 perc",
+    "description": "Aki idegen gépi meghajtású járművet mástól azért vesz el, hogy jogtalanul használja, vagy az így elvett, illetve a rábízott ilyen járművet használja jogtalanul. \n((Itt a rábízott járműről van szó, pl. bérelt, céges stb. Lopott járműnél lopást kell osztani.))",
+    "abbr": "JÖE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "89.",
+    "name": "Bitorlás",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "0 - 30 perc",
+    "description": "Aki más szellemi alkotását sajátjaként tünteti fel, és ezzel a jogosultnak vagyoni hátrányt okoz.",
+    "abbr": "BTR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "90.",
+    "name": "Tiltott adatszerzés",
+    "bail": "✔️",
+    "fine": "$550.000 - $750.000",
+    "time": "0 - 45 perc",
+    "description": "Aki jogosulatlanul személyes adat, magántitok, gazdasági titok vagy üzleti titok megismerése céljából bármilyen adatgyűjtést végez. \n(NAVnál Bejelentett magánnyomozó cégek mentesülnek a vádpont alól amennyiben az adatgyűjtés megbízásra, vagy törvénysértés felkutatása céljából történik.)",
+    "abbr": "TASZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "91.",
+    "name": "Információs rendszer vagy adat megsértése",
+    "bail": "✔️",
+    "fine": "$500.000 - $650.000",
+    "time": "30 - 50 perc",
+    "description": "Aki információs rendszerbe az információs rendszer védelmét biztosító technikai intézkedés megsértésével vagy kijátszásával jogosulatlanul belép, vagy a belépési jogosultsága kereteit túllépve vagy azt megsértve bent marad, abban adatot másít, töröl, hozzáférhetetlenné tesz. Büntetendő továbbá a cselekmény elősegítése valamint annak feljelentésének elmulasztása.\n((Hackelés és/vagy jogosultság átlépés, útján történő hozzáférés, adatmódosítás, törlés stb.))",
+    "abbr": "IRM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.",
+    "name": "Emberrablás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki mást személyi szabadságától erőszakkal, élet vagy testi épség ellen irányuló közvetlen fenyegetéssel vagy védekezésre és/vagy akaratnyílvánítságra képtelen állapotban lévőt kihasználva megfoszt.",
+    "abbr": "ER"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.1",
+    "name": "- Egyedül",
+    "bail": "❌",
+    "fine": "$150.000 - $250.000",
+    "time": "45 - 75 perc",
+    "description": "-",
+    "abbr": "ERM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.2",
+    "name": "- Bűnszövetségben",
+    "bail": "❌",
+    "fine": "$300.000 - $400.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "ERSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.3",
+    "name": "- Felfegyverkezve",
+    "bail": "❌",
+    "fine": "$450.000 - $500.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "ERFF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.4",
+    "name": "- Fegyveresen",
+    "bail": "❌",
+    "fine": "$550.000 - $750.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "ERF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.5",
+    "name": "- Hivatalos személyt",
+    "bail": "❌",
+    "fine": "$600.000 - $750.000",
+    "time": "120 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "ERHSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.6",
+    "name": "- Súlyos sérülés esetén",
+    "bail": "❌",
+    "fine": "$750.000 - $800.000",
+    "time": "30 - 60 perc",
+    "description": "-",
+    "abbr": "ERSTS"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.7",
+    "name": "- Előkészülete",
+    "bail": "❌",
+    "fine": "$250.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "EREK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "92.8",
+    "name": "- Feljelentésének elmulasztása",
+    "bail": "❌",
+    "fine": "$400.000 - $550.000",
+    "time": "0 - 45 perc",
+    "description": "-",
+    "abbr": "ERFE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "93.",
+    "name": "Rablás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki idegen dolgot jogtalan eltulajdonítás végett úgy vesz el mástól, hogy evégből valaki ellen erőszakot illetve az élet vagy a testi épség ellen közvetlen fenyegetést alkalmaz.",
+    "abbr": "RB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "93.1",
+    "name": "- Egyedül",
+    "bail": "❌",
+    "fine": "$200.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "RBM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "93.2",
+    "name": "- Bűnszövetségben",
+    "bail": "❌",
+    "fine": "$300.000 - $500.000",
+    "time": "60 - 90 perc",
+    "description": "-",
+    "abbr": "RBSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "93.3",
+    "name": "- Felfegyverkezve",
+    "bail": "❌",
+    "fine": "$350.000 - $450.000",
+    "time": "60 - 90 perc",
+    "description": "-",
+    "abbr": "RBFF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "93.4",
+    "name": "- Fegyveresen",
+    "bail": "❌",
+    "fine": "$500.000 - $750.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "RBF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "93.5",
+    "name": "- Hivatalos személyt",
+    "bail": "❌",
+    "fine": "$550.000 - $850.000",
+    "time": "80 - 100 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "RBHSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "94.",
+    "name": "Kifosztás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki idegen dolgot jogtalan eltulajdonítás végett úgy vesz el mástól, hogy az illetőt lerészegíti vagy bódult, eszméletlen állapotba helyezi vagy az előbb felsorolt állapotot kihasználja.",
+    "abbr": "KF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "94.1",
+    "name": "- Egyedül",
+    "bail": "✔️",
+    "fine": "$150.000 - $250.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "KFM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "94.2",
+    "name": "- Bűnszövetségben",
+    "bail": "✔️",
+    "fine": "$300.000 - $500.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "KFSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "94.3",
+    "name": "- Jelentős értékre (100.000$ vagy több)",
+    "bail": "❌",
+    "fine": "$400.000 - $650.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "KFJE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "95.",
+    "name": "Zsarolás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki jogtalan haszonszerzés végett mást erőszakkal vagy fenyegetéssel arra kényszerít, hogy valamit tegyen, ne tegyen vagy eltűrjön, és ezzel vagyoni hátrányt okoz.",
+    "abbr": "ZSR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "95.1",
+    "name": "- Egyedül",
+    "bail": "❌",
+    "fine": "$75.000 - $150.000",
+    "time": "0 - 30 perc",
+    "description": "-",
+    "abbr": "ZSRM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "95.2",
+    "name": "- Bűnszövetségben",
+    "bail": "❌",
+    "fine": "$150.000 - $250.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "ZSRSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "95.3",
+    "name": "- Élet vagy testi épség súlyos fenyegetésével",
+    "bail": "❌",
+    "fine": "$250.000 - $450.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "ZSRÉT"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "95.4",
+    "name": "- Hivatalos megbízás vagy minőség színlelésével",
+    "bail": "❌",
+    "fine": "$350.000 - $550.000",
+    "time": "50 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "ZSRHM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "95.5",
+    "name": "- Hivatalos személyként",
+    "bail": "❌",
+    "fine": "$650.000 - $750.000",
+    "time": "80 - 100 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "ZSRHS"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "96.",
+    "name": "Illegális határátlépés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "határellenőrzést megkerülve megy vagy próbál átmenni a határon és/vagy annak mentén. \n(Légi és vízi úton történő megkerülés is ide sorolandó amennyiben az szándékosan történt)",
+    "abbr": "IH"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "96.1",
+    "name": "- Egyedül",
+    "bail": "✔️",
+    "fine": "$150.000 - $200.000",
+    "time": "20 - 35 perc",
+    "description": "-",
+    "abbr": "IHM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "96.2",
+    "name": "- Csoportosan",
+    "bail": "✔️",
+    "fine": "$200.000 - $300.000",
+    "time": "30 - 50 perc",
+    "description": "-",
+    "abbr": "IHCS"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "96.3",
+    "name": "- Felfegyverkezve",
+    "bail": "✔️",
+    "fine": "$300.000 - $350.000",
+    "time": "50 - 60 perc",
+    "description": "-",
+    "abbr": "IHFF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "96.4",
+    "name": "- Fegyveresen",
+    "bail": "✔️",
+    "fine": "$400.000 - $500.000",
+    "time": "60 - 90 perc",
+    "description": "-",
+    "abbr": "IHF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "97.",
+    "name": "Határzár megrongálása",
+    "bail": "✔️",
+    "fine": "$400.000 - $500.000",
+    "time": "90 - 100 perc",
+    "description": "Aki valamely hivatalos szerv által elrendelt határzárat megrongálja, megsemmisíti vagy jogosulatlanul feloldja.",
+    "abbr": "HM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "98.",
+    "name": "Hivatalos személynek való kiadás",
+    "bail": "✔️",
+    "fine": "$650.000 - $750.000",
+    "time": "80 - 100 perc",
+    "description": "Aki bármilyen előny vagy indok végett hivatalos vagy közfeladatot ellátó személyként azonosítja magát.",
+    "abbr": "HSZVK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "99.",
+    "name": "Okirathamisítás",
+    "bail": "✔️",
+    "fine": "$350.000 - $450.000",
+    "time": "30 - 75 perc",
+    "description": "Aki olyan iratot készít vagy használ bármilyen indokból vagy előny szerzés céljából mely nem felel meg a valós adatoknak. \n(Nem osztható együtt Bank/Aranyraktár rablás (hamis irattal) alpontjával, mivel az súlyosabb.) \n(Ha az iratot nem használta, csak nála volt akkor Okirattal visszaélés vádpontot kell alkalmazni.) \n((Okirathamisításnak minősűl az, ha a Bőrszín nem egyezik és a név sem egyezik, ha csak a bőr szín nem egyezik az is OH-nak minűsül. Viszont akkor ha a bőrszín egyezik és a név nem, az nem minden esetben büntethető.))",
+    "abbr": "OH"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "100.",
+    "name": "Hivatalos személy megvesztegetése",
+    "bail": "✔️",
+    "fine": "$300.000 - $450.000",
+    "time": "60 - 100 perc",
+    "description": "Aki a hivatalos személy részére bármilyen előnyt, vagyontárgyat, felkínál annak érdekében, hogy valamit tegyen, ne tegyen, eltűrjön. \nAnnál a hivatalos személynél aki elfogadja a vesztegetést a \"Korrupció\" tételt kell alkalmazni.",
+    "abbr": "HSZM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "101.",
+    "name": "Vesztegetés",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki cég/szervezet részére vagy érdekében tevékenységet végző személynek vagy rá tekintettel másnak bármilyen előnyt, vagyontárgyat, felkínál annak érdekében, hogy valamit tegyen, ne tegyen, eltűrjön. Továbbá annak a cégnek/szerezetnek tulajdonosa/alkalmazottja aki a vesztegetést elfogadja.\nHivatalos személy esetében a \"Hivatalos személy megvesztegetése\" tételt kell alkalmazni.",
+    "abbr": "VSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "101.1",
+    "name": "- Felkínálása",
+    "bail": "✔️",
+    "fine": "$450.000 - $650.000",
+    "time": "0 - 60 perc",
+    "description": "-",
+    "abbr": "VSZF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "101.2",
+    "name": "- Elfogadása",
+    "bail": "✔️",
+    "fine": "$250.000 - $450.000",
+    "time": "30 - 90 perc",
+    "description": "-",
+    "abbr": "VSZE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "102.",
+    "name": "Befolyással üzérkedés",
+    "bail": "✔️",
+    "fine": "$450.000 - $600.000",
+    "time": "60 - 75 perc",
+    "description": "Aki más személynek arra hivatkozik, hogy 3. személyt bármilyen ellenjuttatásért cserébe befolyásol, vagy jogtalan előnyt ad vagy ígér, továbbá az a személy aki jogtalan előnyt kér ily módon.",
+    "abbr": "BÜ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "103.",
+    "name": "Szexuális erőszak",
+    "bail": "❌",
+    "fine": "$600.000 - $850.000",
+    "time": "60 - 120 perc",
+    "description": "Aki a szexuális kényszerítést erőszakkal illetve az élet vagy testi épség elleni közvetlen fenyegetéssel követi el, továbbá aki más védekezésre vagy akaratnyilvánításra képtelen állapotát szexuális cselekményre használja fel.",
+    "abbr": "SZE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "104.",
+    "name": "Szexuális kényszerítés",
+    "bail": "❌",
+    "fine": "$550.000 - $700.000",
+    "time": "75 - 90 perc",
+    "description": "Aki mást szexuális cselekményre vagy annak eltűrésére kényszerít. \nNem osztható együtt a \"Szexuális erőszak\" és \"Prostitúció\" tételekkel.",
+    "abbr": "SZK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "105.",
+    "name": "Kerítés",
+    "bail": "✔️",
+    "fine": "$600.000 - $750.000",
+    "time": "60 - 80 perc",
+    "description": "Aki haszonszerzés céljából valakit szexuális cselekmény végzésére másnak megszerez.",
+    "abbr": "KT"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "106.",
+    "name": "Prostitúció",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Aki haszonszerzés vagy előny céljából szexuális cselekményt végez vagy mást erre rábír, ezt elősegíti. Illetve aki épületet, személyeket vagy bármilyen más vagyontárgyat ezek céljára rendelkezésre bocsájt.",
+    "abbr": "PR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "106.1",
+    "name": "- Magában",
+    "bail": "✔️",
+    "fine": "$150.000 - $300.000",
+    "time": "0 - 45 perc",
+    "description": "-",
+    "abbr": "PRM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "106.2",
+    "name": "- Mást prostitúcióra rábír",
+    "bail": "✔️",
+    "fine": "$250.000 - $400.000",
+    "time": "0 - 60 perc",
+    "description": "-",
+    "abbr": "PRR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "106.3",
+    "name": "- Kényszerítése",
+    "bail": "✔️",
+    "fine": "$300.000 - $450.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "PRK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "106.4",
+    "name": "- Épületet vagy egyéb helyet rendelkezésre bocsájt",
+    "bail": "❌",
+    "fine": "$500.000 - $650.000",
+    "time": "75 - 90 perc",
+    "description": "-",
+    "abbr": "PRÉB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "106.5",
+    "name": "- Bordélyház fenntartásában részvétel, vezetése",
+    "bail": "❌",
+    "fine": "$600.000 - $850.000",
+    "time": "90 - 100 perc",
+    "description": "-",
+    "abbr": "PRBÜ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "107.",
+    "name": "Gyilkosság",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "-",
+    "abbr": "GY"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "107.1",
+    "name": "- Emberölési kísérlet",
+    "bail": "❌",
+    "fine": "$300.000 - $450.000",
+    "time": "60 - 85 perc",
+    "description": "-",
+    "abbr": "EKCSZSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "107.2",
+    "name": "- Emberölési kísérlet hivatalos személlyel szemben",
+    "bail": "❌",
+    "fine": "$400.000 - $600.000",
+    "time": "100 - 120 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "EKHSZSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "107.3",
+    "name": "- Gyilkosság",
+    "bail": "❌",
+    "fine": "$350.000 - $500.000",
+    "time": "75 - 100 perc",
+    "description": "-",
+    "abbr": "GYK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "107.4",
+    "name": "- Hivatalos személy meggyilkolása",
+    "bail": "❌",
+    "fine": "$450.000 - $650.000",
+    "time": "100 - 120 perc",
+    "description": "Ez a tétel kiterjed a közfeladatot ellátó személyekre is.",
+    "abbr": "GYKH"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "108.",
+    "name": "Pénz / Fegyverszállító eltulajdonítása",
+    "bail": "❌",
+    "fine": "$950.000 - $1.250.000",
+    "time": "90 - 100 perc",
+    "description": "Az a személy aki jogosulatlanul a pénz vagy fegyverszállítót eltulajdonítja. Továbbá büntetendő aki ezt a tevékenységet elősegíti, vagy a tevékenység előkészületeiben résztvesz és ezt nem jelzi a hatóságok felé.\n(Amennyiben bank / aranyraktár rablás céljából történt az eltulajdonítás, úgy a \"Bank/Aranyraktár rablás\" vádpontot és annak alpontjait kell alkalmazni.)",
+    "abbr": "PFSZE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "109.",
+    "name": "ATM Rablás",
+    "bail": "❌",
+    "fine": "$650.000 - $750.000",
+    "time": "90 - 100 perc",
+    "description": "Az a személy aki bankautomatát megrongál és/vagy a benne lévő pénzkazettákat eltulajdonítja. Továbbá büntetendő aki ezt a tevékenységet elősegíti, vagy a tevékenység előkészületeiben résztvesz és ezt nem jelzi a hatóságok felé.",
+    "abbr": "ATMR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.",
+    "name": "Bank / Aranyraktár rablás",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Az a személy aki a Rise City Bank és/vagy a Rise City Gold Depot épületében bármilyen módon jogosulatlanul haszonszerzés vagy bármely más indokból kifolyólag eltulajdonítja vagy megpróbálja eltulajdonítani az ott tárolt pénzt (a bankfióki ATMet beleértve), aranytartalékot, egyéb értékes tárgyat. Büntetendő továbbá aki ezen helyeken alkalmazottnak adja ki magát és/vagy bemegy / megpróbál bemenni a kizárólag alkalmazottak részére fenntartott területre.",
+    "abbr": "BAK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.1",
+    "name": "- Egyedül",
+    "bail": "❌",
+    "fine": "$250.000 - $350.000",
+    "time": "60 perc",
+    "description": "-",
+    "abbr": "BAKM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.2",
+    "name": "- Bűnszövetségben",
+    "bail": "❌",
+    "fine": "$400.000 - $500.000",
+    "time": "60 - 90 perc",
+    "description": "-",
+    "abbr": "BAKSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.3",
+    "name": "- Felfegyverkezve",
+    "bail": "❌",
+    "fine": "$400.000 - $450.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "BAKFF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.4",
+    "name": "- Fegyveresen",
+    "bail": "❌",
+    "fine": "$450.000 - $650.000",
+    "time": "60 - 75 perc",
+    "description": "-",
+    "abbr": "BAKF"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.5",
+    "name": "- Pénzszállító eltulajdonítása",
+    "bail": "❌",
+    "fine": "$350.000 - $400.000",
+    "time": "45 - 60 perc",
+    "description": "-",
+    "abbr": "BAKPE"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.6",
+    "name": "- Alkalmazottnak adva ki magát",
+    "bail": "❌",
+    "fine": "$250.000 - $300.000",
+    "time": "30 - 60 perc",
+    "description": "Hamis okirat / fuvarlevél esetében is ezt a pontot kell alkalmazni. \nNem osztható együtt az \"Okirathamisítás\" tétellel.",
+    "abbr": "BAKA"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.7",
+    "name": "- Jogosulatlan behatolás",
+    "bail": "❌",
+    "fine": "$350.000 - $400.000",
+    "time": "30 - 45 perc",
+    "description": "-",
+    "abbr": "BAKJB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "110.8",
+    "name": "- Jogosulatlan behatolás kísérlete",
+    "bail": "❌",
+    "fine": "$300.000 - $350.000",
+    "time": "30 perc",
+    "description": "-",
+    "abbr": "BAKJBK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "111.",
+    "name": "Hatósági rendelkezés elleni uszítás",
+    "bail": "✔️",
+    "fine": "$225.000 - $300.000",
+    "time": "0 - 60 perc",
+    "description": "Aki nagy nyilvánosság előtt, a köznyugalom megzavarására alkalmas módon hatóság rendelkezése ellen általános engedetlenségre uszít.",
+    "abbr": "HREU"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "112.",
+    "name": "Önbíráskodás",
+    "bail": "✔️",
+    "fine": "$275.000 - $350.000",
+    "time": "30 - 60 perc",
+    "description": "Aki abból a célból, hogy jogos vagy jogosnak vélt vagyoni igénynek érvényt szerezzen, mást erőszakkal vagy fenyegetéssel arra kényszerít, hogy valamit tegyen, ne tegyen vagy eltűrjön.",
+    "abbr": "ÖB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "113.",
+    "name": "Bűnszervezetben való részvétel",
+    "bail": "✔️",
+    "fine": "$300.000 - $375.000",
+    "time": "60 - 75 perc",
+    "description": "(( Maffia, Cartel, Banda, Bűnhálózat vezetője, tagja stb és ez kiderül IC. ))",
+    "abbr": "BVR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "114.",
+    "name": "Hamis tanúzás",
+    "bail": "✔️",
+    "fine": "$325.000 - $415.000",
+    "time": "0 - 60 perc",
+    "description": "Az a tanú aki a hatóság előtt valótlant állít, vagy a valóságot elhallgatja.",
+    "abbr": "HT"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "115.",
+    "name": "Tanúvallomás jogosulatlan megtagadása",
+    "bail": "✔️",
+    "fine": "$275.000 - $350.000",
+    "time": "30 - 45 perc",
+    "description": "Az a tanú aki figyelmeztetés után is jogosulatlanul megtagadja a vallomástételt. \nÖnmagával és családjával szemben senki nem kötelezhető vallomástételre.",
+    "abbr": "TJM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "116.",
+    "name": "Nyomozás hátráltatása / akadályoztatása",
+    "bail": "✔️",
+    "fine": "$350.000 - $475.000",
+    "time": "0 - 60 perc",
+    "description": "Aki egy nyomozást hátráltat, akadályoz vagy szándékosan meghiúsít.",
+    "abbr": "NYH"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "117.",
+    "name": "Zártörés",
+    "bail": "✔️",
+    "fine": "$250.000 - $375.000",
+    "time": "30 - 45 perc",
+    "description": "Aki hatósági eljárás során elrendelt lefoglalásnál, zárlatnál alkalmazott pecsétet eltávolít vagy megsért. Továbbá aki a lefoglalás, zárlat alá vont tárgyat, épületet stb. előzetes hatósági engedély nélkül felnyitja, értékesíti, átadja, áthelyezi, megmásítja, megrongálja, megsemmisíti.",
+    "abbr": "ZTR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "118.",
+    "name": "Öngyilkosságban közreműködés",
+    "bail": "❌",
+    "fine": "$450.000 - $575.000",
+    "time": "75 - 90 perc",
+    "description": "Aki mást öngyilkosságra rábír, vagy ennek elkövetéséhez segítséget nyújt.",
+    "abbr": "ÖNKK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "119.",
+    "name": "Kényszerítés",
+    "bail": "❌",
+    "fine": "$375.000 - $525.000",
+    "time": "30 - 90 perc",
+    "description": "Aki mást erőszakkal vagy fenyegetéssel arra kényszerít, hogy valamit tegyen, ne tegyen vagy eltűrjön. Illetve aki mást kiszolgáltatott élethelyzetének kihasználásval arra bír rá, hogy megalázó magatartást tanúsítson.",
+    "abbr": "KNSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "120.",
+    "name": "Minősített adattal való visszaélés",
+    "bail": "❌",
+    "fine": "$330.000 - $465.000",
+    "time": "45 - 90 perc",
+    "description": "Aki minősített adatot jogosulatlanul megszerez, megmásít vagy felhasznál, jogosulatlan személy részére hozzáférhetővé vagy jogosult személy részére hozzáférhetetlenné tesz. \nAzt a hivatalos személyt aki hivatali helyzetével visszaélve követi el a bűncselekményt, haladéktalanul fel kell függeszteni.",
+    "abbr": "MAVV"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "121.",
+    "name": "Ügyvédi visszaélés",
+    "bail": "✔️",
+    "fine": "$750.000 - $1.000.000",
+    "time": "60 - 120 perc",
+    "description": "Az az ügyvéd aki ügyfelének jogtalan hátrányt okoz.",
+    "abbr": "ÜVSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "122.",
+    "name": "Fogolyszökés",
+    "bail": "❌",
+    "fine": "$250.000 - $475.000",
+    "time": "60 - 90 perc",
+    "description": "Az a fogvatartott aki a büntetés letöltését megelőzően jogosulatlanul elhagyja a fogdát.",
+    "abbr": "FSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "123.",
+    "name": "Fogolyszöktetés",
+    "bail": "❌",
+    "fine": "$350.000 - $525.000",
+    "time": "90 - 120 perc",
+    "description": "Az a személy vagy hivatalos személy aki jogosulatlanul lehetővé teszi egy fogvatartott számára a büntetés letöltését megelőzően, hogy elhagyja a fogdát.",
+    "abbr": "FSZK"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "124.",
+    "name": "Fogolyzendülés",
+    "bail": "❌",
+    "fine": "$150.000 - $275.000",
+    "time": "30 - 45 perc",
+    "description": "Az a fogvatartott aki a Büntetés Végrehajtási Intézeten belül vagy a fogdában nem hajlandó együttműködni az intézmény őreivel valamint az őrök ellen erőszakosan lép fel, vagy erre buzdítja a többi elítéltet.",
+    "abbr": "FZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "125.",
+    "name": "Egyedi azonosító jellel visszaélés",
+    "bail": "✔️",
+    "fine": "$120.000 - 200.000",
+    "time": "60 - 120 perc",
+    "description": "Aki félrevezető (Pl. Rendőr, Mentő, Tűzoltó, Polgárőrség stb.), sértő, vagy trágár jellegű fényezést készít és / vagy használ járművén. \nFélrevezető fényezés esetén a jogsértő állapot megszüntetéséig a jármű lefoglalható a Rendőrség által a tulajdonos költségére.",
+    "abbr": "EJV"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "126.",
+    "name": "Egyedi fényezéssel való visszaélés",
+    "bail": "✔️",
+    "fine": "$150.000 - 250.000",
+    "time": "90 - 120 perc",
+    "description": "Aki félrevezető (Pl. Rendőr, Mentő, Tűzoltó, Polgárőrség stb.), sértő, vagy trágár jellegű fényezést készít és / vagy használ járművén. \nFélrevezető fényezés esetén a jogsértő állapot megszüntetéséig a jármű lefoglalható a Rendőrség által a tulajdonos költségére.",
+    "abbr": "EFV"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "127.",
+    "name": "Haditechnika megrongálása",
+    "bail": "✔️",
+    "fine": "$140.000 - $280.000",
+    "time": "0 - 60 perc",
+    "description": "Az a személy aki szándékosan vagy gondatlanságból haditechnikát rongál meg.",
+    "abbr": "HTM"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "128.",
+    "name": "Légtérsértés",
+    "bail": "✔️",
+    "fine": "$200.000 - $350.000",
+    "time": "0 - 60 perc",
+    "description": "Az a pilóta valamint másodpilóta aki engedély nélkül száll fel valamint repül See City légterében.",
+    "abbr": "LTS"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "129.",
+    "name": "Tiltott repülési zónába való berepülés",
+    "bail": "✔️",
+    "fine": "$275.000 - $525.000",
+    "time": "0 - 90 perc",
+    "description": "Az a pilóta valamint másodpilóta aki tiltott repülési zónába vezeti légi járművét, és ott hosszabb ideig bent marad. (( [https://imgur.com/a/n47USde](https://imgur.com/a/n47USde) ))",
+    "abbr": "TRZB"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "130.",
+    "name": "Illegális rendezvény",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Az aki előzetes engedély nélkül állami területen rendezvényt szervez, illetve aki ezen a rendezvényen résztvesz. \nIllegális rendezvénynek kell tekinteni azt a rendezvényt is amelyet a hatóság a közrendre való tekintettel feloszlat. \nNem kell engedély a Rise Ring Versenypályán és az Állami Kereskedelmi Központon történő rendezvényekhez.",
+    "abbr": "IR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "130.1",
+    "name": "- Szervezése",
+    "bail": "✔️",
+    "fine": "$850.000 - $1.500.000",
+    "time": "30 - 75 perc",
+    "description": "-",
+    "abbr": "IRSZ"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "130.2",
+    "name": "- Részvétel",
+    "bail": "✔️",
+    "fine": "$450.000 - $650.000",
+    "time": "0 - 45 perc",
+    "description": "-",
+    "abbr": "IRVR"
+  },
+  {
+    "group": "IV. BŰNCSELEKMÉNYEK",
+    "id": "131.",
+    "name": "Terrorcselekmény",
+    "bail": "❌",
+    "fine": "$1.000.000 - $2.500.000",
+    "time": "120 perc",
+    "description": "Aki abból a célból, hogy állami szervet, vagy nemzetközi szervezetet arra kényszerítsen, hogy valamit tegyen, ne tegyen vagy eltűrjön, a lakosságot megfélemlítse, az állam társadalmi vagy gazdasági rendjét megváltoztassa vagy megzavarja. Továbbá büntetendő az aki a terrorcselekményhez bármilyen anyagi javakkal, tulajdonnal vagy személyekkel hozzájárul. \nBűnrészes is teljes büntetési tételt kap \n!!!Enyhítésre, vádalkura / egyezségre nincs lehetőség!!! \n((Az emberrablásnál kért váltságdíj miatt, nem tartozik ide.))",
+    "abbr": "TRCS"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "132.",
+    "name": "Adócsalás",
+    "bail": "❌",
+    "fine": "$850.000 - $1.500.000",
+    "time": "100 - 120 perc",
+    "description": "Az a személy, aki adóilleték befizetését próbálja elkerülni, vagy hamisan szolgáltat információt az adózásával kapcsolatban az adóhatóság felé.",
+    "abbr": "ACS"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "133.",
+    "name": "Illegális munkavállalás",
+    "bail": "✔️",
+    "fine": "$400.000 - $750.000",
+    "time": "20 - 45 perc",
+    "description": "Az a személy aki olyan cégnél vagy társaságnál vállal haszonszerzés érdekében munkát, ahol tudatában van annak, hogy nem jelentik be az adóhatóság felé vagy a bérének egy részét vagy egészét nem jelentik be az adóhatóság felé.",
+    "abbr": "IMV"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "134.",
+    "name": "Bejegyzetlen cég működtetése",
+    "bail": "✔️",
+    "fine": "$1.000.000 - $2.500.000",
+    "time": "60 - 120 perc",
+    "description": "Az a személy aki olyan céget vagy társaságot működtet melyet nem jelent be a NAV irányába.",
+    "abbr": "BCM"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "135.",
+    "name": "ÁFÁ-s számla kiállításának elmulasztása",
+    "bail": "-",
+    "fine": "$400.000/db",
+    "time": "-",
+    "description": "Az a személy, aki törvényi kötelezettsége végett köteles egy azonos szolgáltatásról, szerződés létrejöttéről számlát kiállítani, és ezt elmulasztja. \nAmennyiben már létrejött szerződés alapján történik a munkavégzés vagy a munkavégzés összege NULLA dollár, nem kell kiállítani számlát.",
+    "abbr": "SZKE"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "136.",
+    "name": "Sikkasztás",
+    "bail": "❌",
+    "fine": "$300.000 - $750.000",
+    "time": "50 - 100 perc",
+    "description": "Aki a rábízott idegen dolgot jogtalanul eltulajdonítja, vagy azzal sajátjaként rendelkezik.",
+    "abbr": "SK"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "137.",
+    "name": "Gazdasági csalás",
+    "bail": "✔️",
+    "fine": "$550.000 - $800.000",
+    "time": "30 - 90 perc",
+    "description": "Aki jogtalan haszonszerzés végett színlelt gazdasági tevékenységet végez, és ezzel vagyoni hátrányt okoz.",
+    "abbr": "GCSLS"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "138.",
+    "name": "Költségvetési csalás",
+    "bail": "❌",
+    "fine": "$650.000 - $850.000",
+    "time": "60 - 120 perc",
+    "description": "Aki a költségvetésbe történő befizetési kötelezettség vagy költségvetésből származó pénzeszközök vonatkozásában mást tévedésbe ejt, tévedésben tart, valótlan tartalmú nyilatkozatot tesz, vagy a valós tényt elhallgatja. Költségvetésbe történő befizetési kötelezettséggel kapcsolatos kedvezményt jogtalanul vesz igénybe, vagy költségvetésből származó pénzeszközöket a jóváhagyott céltól eltérően használ fel, és ezzel egy vagy több költségvetésnek vagyoni hátrányt okoz. Továbbá büntetendő aki a költségvetési csalással kapcsolatos bűncselekményt elmulasztja bejelenteni az adóhatóság irányába.",
+    "abbr": "KCSLS"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "139.",
+    "name": "Pénzmosás",
+    "bail": "❌",
+    "fine": "$875.000 - $1.275.000",
+    "time": "75 - 120 perc",
+    "description": "Aki a büntetendő cselekményből származó vagyon eredetét, a vagyonon fennálló jogot, a vagyon helyét, ezek változását elfedi vagy elleplezi. Továbbá büntetendő aki a pénzmosással kapcsolatos bűncselekményt elmulasztja bejelenteni az adóhatóság irányába. \n(Számvitel rendjének megsértésével együtt nem osztható.)",
+    "abbr": "PZM"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "140.",
+    "name": "Jogosulatlan pénzügyi tevékenység",
+    "bail": "❌",
+    "fine": "$675.000 - $1.000.000",
+    "time": "60 - 120 perc",
+    "description": "Aki jogosulatlanul, engedély nélkül pénzügyi, befektetési, banki, tőzsdei, hitelintézeti, biztosítási szolgáltatást végez illetve ebben a szolgálatatásban közreműködik, a szolgáltatáshoz bármilyen segítséget nyújt.",
+    "abbr": "JPT"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "141.",
+    "name": "Üzleti titok megsértése",
+    "bail": "✔️",
+    "fine": "$480.000 - $560.000",
+    "time": "30 - 90 perc",
+    "description": "Aki jogtalan előnyszerzés végett, vagy másnak vagyoni hátrányt okozva üzleti titkot jogosulatlanul megszerez, felhasznál, más személy részére hozzáférhetővé tesz vagy nyilvánosságra hoz.",
+    "abbr": "ÜTM"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "142.",
+    "name": "Versenytárs utánzása",
+    "bail": "✔️",
+    "fine": "$250.000 - $425.000",
+    "time": "100 perc",
+    "description": "Aki a versenytárs hozzájárulása nélkül árut olyan jellegzetes külsővel, csomagolással, megjelöléssel vagy elnevezéssel állít elő, amelyről a versenytárs vagy annak jellegzetes tulajdonsággal rendelkező áruja ismerhető fel, vagy ilyen árut forgalomba hozatal céljából megszerez, tart, vagy forgalomba hoz.",
+    "abbr": "VTU"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "143.",
+    "name": "Számvitel rendjének megsértése",
+    "bail": "❌",
+    "fine": "$450.000 - $525.000",
+    "time": "60 - 100 perc",
+    "description": "Aki a számvitelt nem átláthatóan, vagy a törvényben foglaltak szerint vezeti, továbbá aki szándékosan hamis adatokat ír a számvitelbe. Büntetendő továbbá aki a cég/szervezet számvitelét nem hajlandó átadni ellenőrzésre az adóhatóságnak. \n(Pénzmosással együtt nem osztható)",
+    "abbr": "SZRM"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "144.",
+    "name": "Gazdasági adatszolgáltatási kötelezettség elmulasztása",
+    "bail": "✔️",
+    "fine": "$650.000 - $850.000",
+    "time": "0 - 120 perc",
+    "description": "Az a cégbejelentő vagy cégjegyzék módosítására jogosult személy, aki szándékosan hamis információkat szolgáltat az adóhatóság felé annak érdekében, hogy a céget, annak vezetőségét vagy alkalmazottait ne lehessen fellelni. Büntetendő továbbá aki változás esetén nem jelenti a pontos változásokat az adóhatóság felé annak érdekében, hogy a céget, annak vezetőségét vagy alkalmazottjait ne lehessen fellelni.",
+    "abbr": "GAKE"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "145.",
+    "name": "Fogyasztók, vásárlók megtévesztése",
+    "bail": "✔️",
+    "fine": "$775.000 - $875.000",
+    "time": "30 - 90 perc",
+    "description": "Aki egy szolgáltatást, terméket úgy híresztel, ad elő, hogy az alkalmas a fogyasztókat, vásárlókat megtéveszteni.",
+    "abbr": "FVM"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "146.",
+    "name": "Tartozás fedezetének elvonása",
+    "bail": "✔️",
+    "fine": "$350.000 - $475.000",
+    "time": "45 - 100 perc",
+    "description": "Aki írásbeli szerződés alapján fennálló követelés fedezetéül szolgáló vagyont részben vagy egészben elvonja, és ezzel a tartozás kiegyenlítését részben vagy egészben meghiúsítja.",
+    "abbr": "TFE"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "147.",
+    "name": "Szerződésszegés",
+    "bail": "-",
+    "fine": "$450.000 - $525.000",
+    "time": "-",
+    "description": "Az a személy/cég aki egy másik természetes személlyel vagy céggel kötött szerződést nem tart be, megsért, vagy jogosulatlanul felbont. \nCég esetében minden esetben a Tulajdonost/Igazgatót terheli a tétel.",
+    "abbr": "SZSZ"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "148.",
+    "name": "Vállalkozói engedély hiánya",
+    "bail": "✔️",
+    "fine": "$475.000 - $650.000",
+    "time": "60 - 75 perc",
+    "description": "Az a személy aki olyan céget vagy társaságot működtet melyet nem jelent be, vagy olyan tevékenységet végez melyből adóköteles hasznot szerez.",
+    "abbr": "VEH"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "149.",
+    "name": "Vállalkozói kártya hiánya",
+    "bail": "-",
+    "fine": "$350.000 - $400.000",
+    "time": "-",
+    "description": "Az a személy, aki bejegyzett céget vagy társaságot működtet, viszont ellenőrzés során nem tudja felmutatni az engedélyét.",
+    "abbr": "VKH"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "150.",
+    "name": "Hamis számla kiadása",
+    "bail": "✔️",
+    "fine": "$400.000 - $475.000",
+    "time": "60 - 100 perc",
+    "description": "Az a személy, aki hamis, a valóságnak nem megfelelő adatok alapján készít számlát, és azt kiadja.",
+    "abbr": "HSZK"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "151.",
+    "name": "Hamis számla bemutatása",
+    "bail": "✔️",
+    "fine": "$425.000 - $550.000",
+    "time": "60 - 100 perc",
+    "description": "Az a személy, aki hamis, a valóságnak nem megfelelő adatok alapján készített számlát használ fel jogtalan haszonszerzés céljából.",
+    "abbr": "HSZB"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "152.",
+    "name": "Számlatömbbel való visszaélés",
+    "bail": "❌",
+    "fine": "$475.000 - $650.000",
+    "time": "80 - 100 perc",
+    "description": "Az a személy, aki egy cég számlatömbjét adócsalás, illetve vagyonszerzés céljából használja fel.",
+    "abbr": "SZVV"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "153.",
+    "name": "Vállalkozói engedély illetéktelen továbbadása",
+    "bail": "✔️",
+    "fine": "$650.000 - $875.000",
+    "time": "30 - 60 perc",
+    "description": "Az a személy, aki egy cég válalkozói engedélyét jogosulatlanul továbbadja, önakaratából, illetéktelen felhasználásra. Kivételt képeznek azok az Adóhivatalnál bejelentett személyek, akik jogosultak a használatára. (Társtulajdonos, ügyintéző)",
+    "abbr": "VEIT"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "154.",
+    "name": "Vállalkozói engedéllyel való visszaélés",
+    "bail": "❌",
+    "fine": "$450.000 - $675.000",
+    "time": "60 - 90 perc",
+    "description": "Az a személy, aki egy cég vállalkozói engedélyét jogosulatlanul felhasználja, visszaél vele. Kivételt képeznek azok az Adóhivatalnál bejelentett személyek, akik jogosultak a használatára. (Társtulajdonos, ügyintéző)",
+    "abbr": "VÁEVV"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "155.",
+    "name": "Bejelentetlen egyéni vállalkozó foglalkoztatása",
+    "bail": "✔️",
+    "fine": "$800.000 - $1.000.000",
+    "time": "30 - 60 perc",
+    "description": "Az a cégtulajdonos, akinek az alkalmazottja bejelentetetlenül végzi a tevékenységét.",
+    "abbr": "BEVF"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "156.",
+    "name": "Késői kasszazárás",
+    "bail": "-",
+    "fine": "$350.000 - $575.000",
+    "time": "-",
+    "description": "Alkalmanként számolandó fel az összeg.",
+    "abbr": "KK"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "157.",
+    "name": "Költségvetési csaláshoz kapcsolódó felügyeleti vagy ellenőrzési kötelezettség elmulasztása",
+    "bail": "❌",
+    "fine": "$850.000 - $1.000.000",
+    "time": "90 - 120 perc",
+    "description": "Az a pénzügyőr, aki felügyeleti vagy ellenőrzési kötelezettségét elmulasztja, és ezzel költségvetési csalást tesz lehetővé.",
+    "abbr": "FVEKE"
+  },
+  {
+    "group": "V. GAZDASÁGI BŰNCSELEKMÉNYEK [NAV HATÁSKÖR]",
+    "id": "158.",
+    "name": "Cégjegyzékkel kapcsolatos információk jogosulatlan módosítása",
+    "bail": "❌",
+    "fine": "$1.250.000 - $1.750.000",
+    "time": "90 - 120 perc",
+    "description": "Az a pénzügyőr, aki jogosulatlanul módosít cégjegyzékkel kapcsolatos információt.",
+    "abbr": "IJM"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "159.",
+    "name": "Dezertálás",
+    "bail": "❌",
+    "fine": "$500.000 - $750.000",
+    "time": "120 perc",
+    "description": "Az a hadköteles aki katonai szolgálatának teljesítését megtagadja, vagy katonai szolgálatra szándékosan nem jelentkezik.",
+    "abbr": "DZ"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "160.",
+    "name": "Parancsmegtagadás",
+    "bail": "❌",
+    "fine": "$500.000 - $1.000.000",
+    "time": "120 perc",
+    "description": "Az a hivatalos személy valamint hadköteles aki felettesének jogszerű utasítását megtagadja. \nBűncselekmény elkövetésére adott parancsot mindenki köteles megtagadni, és lépéseket tenni a parancsot kiosztó személlyel szemben!",
+    "abbr": "PM"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "161.",
+    "name": "Szolgálati lőfegyverrel való visszaélés",
+    "bail": "❌",
+    "fine": "$800.000 - $1.000.000",
+    "time": "100 - 120 perc",
+    "description": "Az a hivatalos személy valamint hadköteles aki szolgálati lőfegyverével bármilyen módon visszaél.",
+    "abbr": "SZLV"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "162.",
+    "name": "Függelemsértés",
+    "bail": "❌",
+    "fine": "$350.000 - $550.000",
+    "time": "0 - 120 perc",
+    "description": "Aki az elöljáró vagy az alárendelt tekintélyét más előtt feltűnően durván megsérti.",
+    "abbr": "FS"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "163.",
+    "name": "Korrupció",
+    "bail": "⬇",
+    "fine": "⬇",
+    "time": "⬇",
+    "description": "Az a hivatalos vagy közfeladatot ellátó személy aki bármilyen vesztegetésért cserébe valamit tesz, nem tesz vagy eltűr.",
+    "abbr": "KRP"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "163.1",
+    "name": "- Magában",
+    "bail": "❌",
+    "fine": "$1.000.000 - $2.500.000",
+    "time": "120 perc",
+    "description": "-",
+    "abbr": "KRPM"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "163.2",
+    "name": "- Feljelentésének elmulasztása",
+    "bail": "❌",
+    "fine": "$750.000 - $1.000.000",
+    "time": "90 - 120 perc",
+    "description": "-",
+    "abbr": "KRPFE"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "164.",
+    "name": "Jelentési kötelezettség megszegése",
+    "bail": "❌",
+    "fine": "$800.000 - $1.000.000",
+    "time": "100 - 120 perc",
+    "description": "Aki fontos szolgálati ügyben valótlan jelentést tesz.",
+    "abbr": "JKMSZ"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "165.",
+    "name": "Hivatali visszaélés",
+    "bail": "❌",
+    "fine": "$1.000.000 - $3.500.000",
+    "time": "120 perc",
+    "description": "Az a hivatalos vagy közfeladatot ellátó személy, aki azért, hogy jogtalan hátrányt okozzon vagy jogtalan előnyt szerezzen hivatali kötelességét megszegi, túllépi, vagy helyzetével egyébként visszaél.",
+    "abbr": "HIVV"
+  },
+  {
+    "group": "VI. KATONAI, RENDÉSZETI, HIVATALI BŰNCSELEKMÉNYEK",
+    "id": "166.",
+    "name": "Kötelezettségmulasztás",
+    "bail": "❌",
+    "fine": "$1.000.000 - $1.500.000",
+    "time": "120 perc",
+    "description": "Az az állami alkalmazott aki kötelezettségének nem tesz eleget.",
+    "abbr": "KML"
+  }
+]

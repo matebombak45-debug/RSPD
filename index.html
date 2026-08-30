@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="hu"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>RCPD • Rise City Police Department</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div id="loginView" class="auth-page"><div class="auth-brand"><h1>Rise City Police Department</h1><p>Szolgálunk és Védünk</p></div><div class="auth-grid"><section class="panel auth-card"><h2>Állományi Bejelentkezés</h2><form id="loginForm"><input id="loginFullName" placeholder="Név" required><input id="loginBadge" placeholder="Jelvényszám" required><input id="loginPassword" type="password" placeholder="Jelszó" required><button type="button" class="primary" onclick="login()">Belépés</button><div id="loginError" class="error"></div></form></section><section class="panel auth-card"><h2>Csatlakozás az állományhoz</h2><p>Nincs még hozzáférésed? Add be a jelentkezésed!</p><button id="openApplication" class="ghost">Jelentkezési lap</button></section></div></div>
+<div id="appView" class="hidden"><header class="topbar"><div><b class="brand">RCPD</b><span>Rise City Police Department</span></div><div class="userbar">Bejelentkezve: <b id="userLabel"></b><button id="logout" class="danger small">Kijelentkezés</button></div></header><nav class="tabs"><button data-tab="btk" class="tab active">BTK</button><button data-tab="rules" class="tab">Szabályzat</button><button data-tab="units" class="tab">Egységek &amp; Járőr</button><button data-tab="reports" class="tab">Jelentések</button><button data-tab="applications" class="tab">Jelentkezések</button><button data-tab="reports-admin" class="tab">Vezetői jelentések</button></nav><main>
+<section id="tab-btk" class="tabpage"><div class="layout"><div class="panel"><div class="toolbar"><input id="btkSearch" placeholder="Keresés §, megnevezés vagy rövidítés alapján..."><select id="btkGroup"><option value="all">Minden csoport</option></select></div><div id="btkGroups"></div></div><aside class="panel calculator"><h2>Büntetés Kalkulátor</h2><div id="selectedPenalties" class="selected-list"><p class="muted">Válassz egy vagy több BTK tételt.</p></div><div class="calc-total"><div>Fizetendő Bírság:<strong id="totalFine">$0</strong></div><div>Börtönbüntetés:<strong id="totalTime">0 perc</strong></div></div><button id="clearCalc" class="danger">Minden törlése</button></aside></div></section>
+<section id="tab-units" class="tabpage hidden"><div class="section-head"><div><h1>Egységek &amp; Járőr</h1><p class="muted">Aktív egységek létrehozása, megtekintése és csatlakozás.</p></div><button id="newUnit" class="primary">+ Egység alakítása</button></div><div id="unitGrid" class="cards"></div></section>
+<section id="tab-reports" class="tabpage hidden"><div class="section-head"><div><h1>Jelentések</h1></div><button id="newReport" class="primary">+ Új jelentés</button></div><div id="reportList" class="list"></div></section>
+<section id="tab-applications" class="tabpage hidden"><div class="section-head"><div><h1>Jelentkezések</h1><p class="muted">IC jelentkezések kezelése. Demo módban minden felhasználó látja.</p></div></div><div id="applicationList" class="list"></div></section>
+<section id="tab-rules" class="tabpage hidden"><div class="section-head"><div><h1>Szabályzat</h1><p class="muted">Fontos szabályozások, korlátok és elvek.</p></div></div><div class="panel" style="padding:24px;max-width:1300px;margin:0 auto"><div style="white-space:pre-wrap;line-height:1.7;color:#e8edf5;font-size:15px;user-select:none;-webkit-user-select:none;pointer-events:none;">
+FONTOS SZABÁLYOZÁSOK, KORLÁTOK, ELVEK
+
+1) Az IC jail őrizetbe vételnek minősül, így kéretik RP-zni, ugyanis vádemelés nem történik, és bírósági ítélet se születik. A büntetést az ügyészségnek felterjesztett vádemelési javaslatként javasolt RP-zni IC.
+
+2) Az IC jail hossza maximum 120 perc hosszú lehet.
+
+3) A pénzbírság értéke maximum 2.500.000$ lehet.
+
+4) A pénzbüntetés összegét össze lehet adni.
+
+5) Négyes szint alatt a börtönbüntetés idejét tilos kiszabni a játékosra.
+
+6) Enyhítő körülmények: [20-40% ajánlott] Büntetlen előélet (MDC ellenőrzése minden esetben szükséges) | [10-20% ajánlott] Hatóságokkal történő együttműködés | [50% ajánlott] Kényszer hatására követte el a bűncselekményt
+
+7) Óvadékra vonatkozó szabályok: Óvadékra csak és kizárólag azoknál a pontoknál van lehetőség, ahol ez fel van tüntetve. Amennyiben az elítéltnek a sok közül akár 1 olyan vádpontja van amely megtiltja, onnantól nem kaphat óvadékra lehetőséget. Az óvadék megtagadására csak Tisztnek, Főtisztnek, Tábornokoknak van lehetősége erős indoklással.
+
+8) Ha az összeg meghaladja az 5.000.000 millió dollárt börtönbüntetés adásnál, akkor a maradék összeget csekkben kell kiegészíteni!
+
+1. § Az óvadéktétel jogától tiszti vagy magasabb állománycsoportba tartozó személyek határozatban megfoszthatják az terheltet.
+2. § Enyhítésre vonatkozó szabályok: Enyhítésnél a pénzbírságot és az időt külön-külön is lehet módosítani. Tisztesek és Tiszthelyettesek: 20% | Zászlósok: 40% | Tisztek: 60% | Főtisztek: 80% | Tábornokok és Vezérkari tagok: 100%
+3. § Óvadéktételre büntetőeljárásban mindig joga van az elítéltnek, kivéve azon súlyos bűncselekményeket, ahol ezt a jogalkotó külön feltüntette, vagy az időkorláton kívül esik, vagy az 1. § szakasz szerint erre jogosult megfosztotta ettől a jogától. Az óvadék összege időarányosan kerül megállapításra, az összegek a csatolt táblázatban találhatók, az összege a bírságon FELÜL lesz kiszabva. Szabálysértési elzárásra nincs óvadék. Óvadék munkalap.
+4. § A közigazgatási bírság csökkentése nem lehetséges, a meghatározott összeget kell kiszabni. Ahol fix összeg van megadva, nem intervallum, az az objektív felelősség elve szerinti elbírálás alá esik és közigazgatási bírságnak számít, az összegtől nem lehet semmilyen módon eltérni.
+5. § Szabálysértéseknél nincs lehetőség a százalékalapú csökkentésre, ahol intervallum van megadva, ott az intervallumon belül lehet dönteni a bírság összegéről méltányosság alapján.
+6. § Az egyéb szankciókat nem kötelező foganatosítani, az intézkedő személy egyéni döntésjoga, kivéve fegyverek, kábítószerek elkobzásánál, ahol ez kötelező. Illetve, ahol ez fel van tüntetve.
+7. § A vezetői engedély az egyéb szankció útján lehetővé tett eseteken kívül akkor vonható be, ha bizonyíthatóan visszaeső a szabálysértő.
+8. § Szándékosságnak az számít, ha valaki a cselekménye következményeit kívánja, vagy e következményekbe belenyugszik.
+9. § Gondatlanságnak az számít, ha valaki előre látja a lehetséges következményeit a cselekményének, de könnyelműen bízik benne, hogy azok nem következnek be, vagy a tőle elvárható figyelmet vagy körültekintést elmulasztja.
+10. § Bűnsegédlet és bűnrészesség esetén mindig a pénzbírság és a börtönbüntetés felét kell kiszabni. Aki önmaga is megvalósítja az adott törvényszegést, az nem bűnrészes, hanem teljes körű elkövető. A menekülő jármű utasa alapból nem bűnrészes.
+11. § A büntethetőséget megszünteti a) az elkövető halála, b) a tevékeny megbánás, c) a kegyelem, d) a törvényben meghatározott egyéb ok.
+</div></div></section>
+<section id="tab-reports-admin" class="tabpage hidden"><div class="section-head"><div><h1>Vezetői jelentések</h1><p class="muted">Összes beküldött jelentés (csak vezetők láthatják).</p></div></div><div id="leaderReportList" class="list"></div></section>
+</main></div>
+<div id="modal" class="modal hidden"><div class="modal-box"><button class="modal-close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+<script src="js/app.js"></script></body></html>
