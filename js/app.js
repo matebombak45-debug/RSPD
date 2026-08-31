@@ -7,6 +7,20 @@ const unitTypes=[
  {name:'CR',abbr:'CR',rule:'Civil Rendészeti osztály.',min:1}
 ];
 const users=[{name:'TISZT-001',password:'rcpd123',rank:'Főhadnagy'}];
+/* Ranglista: 1 = legalacsonyabb, 28 = legmagasabb. Altábornagy (26) és afölött vezetőségi jogosultság. */
+const RANKS=[
+ 'Őrmester','Őrmester [+]',
+ 'Törzsőrmester','Törzsőrmester [+]',
+ '[KR] Törzsőrmester','Főtörzsőrmester','Főtörzsőrmester [KR]','Főtörzsőrmester [+]',
+ 'Zászlós','Zászlós [KR]','Zászlós [+]',
+ 'Törzszászlós','Törzszászlós [KR]','Törzszászlós [+]',
+ 'Főtörzszászlós','Főtörzszászlós [KR]','Főtörzszászlós [+]',
+ 'Hadnagy','Főhadnagy','Százados','Őrnagy','Alezredes','Ezredes',
+ 'Dandártábornok','Vezérőrnagy','Altábornagy','Vezérezredes','Főkapitány'
+];
+const LEADER_MIN_LEVEL = 26; // Altábornagy (26), Vezérezredes (27), Főkapitány (28)
+function rankLevel(rank){ const i=RANKS.indexOf(String(rank||'').trim()); return i<0?0:i+1; }
+function rankOptionsHtml(selected){ return RANKS.map(r=>`<option value="${esc(r)}" ${r===selected?'selected':''}>${rankLevel(r)}. ${esc(r)}</option>`).join(''); }
 const $=s=>document.querySelector(s); const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 /* ---- Egyedi notify (toast) + megerősítő (confirm) rendszer ---- */
@@ -100,6 +114,8 @@ function isLeader(){
 	const rank=String(state.user.rank).toLowerCase();
 	return rank.includes('főkapitány')||rank.includes('leader')||rank.includes('al leader')||rank.includes('al-leader');
 }
+// Vezetőségi tab-láthatóság: rang alapú (Altábornagy és afölött)
+function canSeeLeadership(){ return isExecutive(); }
 
 function updateTabVisibility(){
 	const tab=document.querySelector('[data-tab="applications"]');
@@ -165,8 +181,7 @@ function login(){
 // leadership / executive helpers
 function isExecutive(){
 	if(!state.user||!state.user.rank) return false;
-	const r = String(state.user.rank).toLowerCase();
-	return r.includes('főkapitány') || r.includes('vezérezredes');
+	return rankLevel(state.user.rank) >= LEADER_MIN_LEVEL;
 }
 
 function saveLocalUsers(users){
@@ -231,7 +246,7 @@ function adminDeleteReport(id){ const r=state.reports.find(x=>x.id===id); if(!r)
 function viewReportsForBadge(badge){ const users = getLocalUsers(); const u = users.find(x=>String(x.badge).toUpperCase()===String(badge).toUpperCase()); const name = u? u.ic : badge; const reports = state.reports.filter(r=>r.author===name); if(!reports.length) return openModal(`<h2>${esc(name)} jelentései</h2><div class="panel"><span class="muted">Nincs jelentés.</span></div>`); const html = reports.map(r=>`<article class="list-card"><div><h3>${esc(r.result==='arrest'?'ELŐÁLLÍTÁS':'BÍRSÁGOLÁS')}</h3><p>${esc(r.date)} • ${esc(r.author)}</p><p>${esc((r.description||'').slice(0,240))}</p></div><div class="actions"><button class="ghost" onclick="showReport('${r.id}')">Megnyitás</button></div></article>`).join(''); openModal(`<h2>${esc(name)} jelentései</h2><div>${html}</div>`); }
 
 function openCreateUserModal(){
-	openModal(`<h2>Új felhasználó létrehozása</h2><form id="createUserForm" class="form-grid"><label>IC név<input id="new_user_ic"></label><label>Jelvényszám<input id="new_user_badge"></label><label>Jelszó<input id="new_user_password" type="password"></label><label>Rang<input id="new_user_rank" placeholder="Főhadnagy"></label><button class="primary">Létrehozás</button></form>`);
+	openModal(`<h2>Új felhasználó létrehozása</h2><form id="createUserForm" class="form-grid"><label>IC név<input id="new_user_ic"></label><label>Jelvényszám<input id="new_user_badge"></label><label>Jelszó<input id="new_user_password" type="password"></label><label>Rang<select id="new_user_rank">${rankOptionsHtml('Főhadnagy')}</select></label><button class="primary">Létrehozás</button></form>`);
 	$('#createUserForm').onsubmit = e=>{ e.preventDefault(); createUserFromModal(); };
 }
 
@@ -249,7 +264,8 @@ function createUserFromModal(){
 function deleteLocalUser(badge){ const nb = normalizeBadge(badge); const del = getLocalUsers().find(u=>normalizeBadge(u.badge)===nb); if(!del) return alert('Nem található.'); uiConfirm(`Biztosan törlöd ${del.ic} (${del.badge}) fiókját? Az összes adata elveszik és a fiók tiltásra kerül.`, ()=>{ let users = getLocalUsers().filter(u=>normalizeBadge(u.badge)!==nb); saveLocalUsers(users); // blacklist the ACCOUNT (IC name), not the badge — badge stays reusable
 	let bl = loadBlacklist(); if(!bl.includes(del.ic)) bl.push(del.ic); saveBlacklist(bl); renderLeadershipPanel(); alert('Fiók törölve és tiltva.'); }); }
 
-function editLocalUser(badge){ const users = getLocalUsers(); const u = users.find(x=>x.badge===badge); if(!u) return alert('Nem található.'); openModal(`<h2>Felhasználó szerkesztése</h2><form id="editUserForm" class="form-grid"><label>IC név<input id="edit_user_ic" value="${esc(u.ic)}"></label><label>Rang<input id="edit_user_rank" value="${esc(u.rank)}"></label><label>Új jelszó (üres = változatlan)<input id="edit_user_pw"></label><button class="primary">Mentés</button></form>`); $('#editUserForm').onsubmit=e=>{ e.preventDefault(); const ic=$('#edit_user_ic').value.trim(); const rank=$('#edit_user_rank').value.trim(); const pw=$('#edit_user_pw').value; if(!ic||!rank) return alert('Hiányzó mező'); u.ic=ic; u.rank=rank; if(pw) u.password=pw; saveLocalUsers(users); closeModal(); renderLeadershipPanel(); alert('Mentve.'); }; }
+function editLocalUser(badge){ const users = getLocalUsers(); const u = users.find(x=>x.badge===badge); if(!u) return alert('Nem található.'); openModal(`<h2>Felhasználó szerkesztése</h2><form id="editUserForm" class="form-grid"><label>IC név<input id="edit_user_ic" value="${esc(u.ic)}"></label><label>Rang<select id="edit_user_rank">${rankOptionsHtml(u.rank)}</select></label><label>Új jelszó (üres = változatlan)<input id="edit_user_pw"></label><button class="primary">Mentés</button></form>`); $('#editUserForm').onsubmit=e=>{ e.preventDefault(); const ic=$('#edit_user_ic').value.trim(); const rank=$('#edit_user_rank').value.trim(); const pw=$('#edit_user_pw').value; if(!ic||!rank) return alert('Hiányzó mező'); u.ic=ic; u.rank=rank; if(pw) u.password=pw; saveLocalUsers(users); closeModal(); renderLeadershipPanel(); // ha a bejelentkezett user rangját változtatták, frissítsem a tab-láthatóságot
+		if(state.user && normalizeBadge(state.user.name)===normalizeBadge(badge)){ state.user.rank=rank; updateTabVisibility(); renderLeaderReports(); } alert('Mentve.'); }; }
 
 function addToBlacklist(){ const v = $('#blacklistInput').value.trim(); if(!v) return alert('Adj meg egy IC nevet'); let bl = loadBlacklist(); if(bl.map(x=>String(x).toLowerCase()).includes(v.toLowerCase())) return alert('Már benne van'); bl.push(v); saveBlacklist(bl); renderLeadershipPanel(); alert('Fiók tiltva.'); }
 
