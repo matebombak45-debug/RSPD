@@ -58,3 +58,7 @@ input,select,textarea{background:#0b0d10 !important;border-color:rgba(255,255,25
 .ui-confirm.danger .ui-btn-ok:hover{background:#ff5c54}
 @keyframes uiFade{from{opacity:0}to{opacity:1}}
 @keyframes uiPop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+
+
+/* Rang kijelzés a felső sávban */
+.user-rank{color:#9fb3c8;font-weight:600;letter-spacing:.4px}
