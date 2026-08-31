@@ -164,6 +164,7 @@ function login(){
 	$('#loginView').classList.add('hidden');
 	$('#appView').classList.remove('hidden');
 	$('#userLabel').textContent = `${state.user.ic} • ${state.user.name}`;
+	if($('#userRank')) $('#userRank').textContent = state.user.rank || '';
 	$('#loginError').textContent = '';
 	updateTabVisibility(); renderLeaderReports(); startLeaderPing();
 	// If executive, auto-open the leadership panel for testing (tab remains hidden)
