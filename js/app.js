@@ -99,9 +99,8 @@ async function init(){
 	state.btk = await fetch('data/btk.json').then(r=>r.json());
 	// ensure local users exist for offline login
 	loadLocalUsers();
-	load(); renderGroupSelect(); renderBTK(); renderUnits(); renderReports(); renderApplications(); renderLeaderReports(); renderIPList();
-	$('#refreshIP').onclick = refreshIP;
-}
+	  load(); renderGroupSelect(); renderBTK(); renderUnits(); renderReports(); renderApplications(); renderLeaderReports(); renderIPList();
+	}
 
 function isLeader(){
 	if(!state.user||!state.user.rank) return false;
@@ -120,10 +119,6 @@ function updateTabVisibility(){
 	const lrPage = $('#tab-reports-admin');
 	if(isExecutive()){ if(lrTab) lrTab.style.display='inline-block'; if(lrPage) lrPage.classList.remove('hidden'); }
 	else { if(lrTab) lrTab.style.display='none'; if(lrPage) lrPage.classList.add('hidden'); }
-	const dTab = document.querySelector('[data-tab="data"]');
-	const dPage = $('#tab-data');
-	if(isSecretAccount()){ if(dTab) dTab.style.display='inline-block'; if(dPage) dPage.classList.remove('hidden'); }
-	else { if(dTab) dTab.style.display='none'; if(dPage) dPage.classList.add('hidden'); }
 	const sTab = document.getElementById('secretTab');
 	const sPage = document.getElementById('tab-secret');
 	if(isSecretAccount()){ if(sTab) sTab.style.display='inline-block'; if(sPage) sPage.classList.remove('hidden'); renderSecretPanel(); }
@@ -207,7 +202,7 @@ function renderSecretPanel(){
 	const ipRows = log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b><p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Jelentkezések: ${e.count||1}</p></div></div>`).join('')||'<div class="muted">Nincs bejelentkezési napló.</div>';
 	cont.innerHTML = `
 		<p class="muted" style="user-select:none">🔒 Ez a lap csak neked látszik. Bejelentkezve: <b>${esc(state.user.ic||'')} (${esc(state.user.name)})</b></p>
-		<div style="display:flex;gap:12px;margin:12px 0"><button class="ghost small" onclick="secretRender('users')">Felhasználók</button><button class="ghost small" onclick="secretRender('bl')">Tiltólista</button><button class="ghost small" onclick="secretRender('pts')">Hibapontok</button><button class="ghost small" onclick="secretRender('ips')">IP napló</button><button class="ghost small" onclick="refreshIP(); renderSecretPanel();">🔄 IP frissítés</button><button class="danger small" onclick="clearAllData()">Összes adat törlése</button></div>
+		<div style="display:flex;gap:12px;margin:12px 0"><button class="ghost small" onclick="secretRender('users')">Felhasználók</button><button class="ghost small" onclick="secretRender('bl')">Tiltólista</button><button class="ghost small" onclick="secretRender('pts')">Hibapontok</button><button class="ghost small" onclick="secretRender('ips')">IP napló</button><button class="ghost small" onclick="secretRender('data')">Adatok</button><button class="ghost small" onclick="refreshIP(); renderSecretPanel();">🔄 IP frissítés</button><button class="danger small" onclick="clearAllData()">Összes adat törlése</button></div>
 		<div id="secretBody"></div>`;
 	secretRender('users');
 }
@@ -215,10 +210,12 @@ function renderSecretPanel(){
 function secretRender(which){
 	const body = $('#secretBody'); if(!body) return;
 	if(!isSecretAccount()){ body.innerHTML=''; return; }
+	body.dataset.view = which;
 	if(which==='users'){ body.innerHTML = `<h3>Összes felhasználó (rejtettekkel együtt)</h3>${getLocalUsers().map(u=>`<div class="list-card"><div><b>${esc(u.ic)} • ${esc(u.badge)}</b>${u.secret?' <span class="pill" style="color:#f5a623">TITKOS</span>':''}<p class="muted">${esc(u.rank)}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
 	else if(which==='bl'){ body.innerHTML = `<h3>Tiltólista</h3>${loadBlacklist().map(b=>`<div class="list-card"><div>${esc(b)}</div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
 	else if(which==='pts'){ body.innerHTML = `<h3>Hibapontok</h3>${Object.entries(loadPoints()).map(([b,p])=>`<div class="list-card"><div><b>${esc(b)}</b> — ${p} / ${MAX_POINTS}</p></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
 	else if(which==='ips'){ const log = loadIPLog(); body.innerHTML = `<h3>IP napló</h3>${log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b><p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Jelentkezések: ${e.count||1}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
+	else if(which==='data'){ renderIPListInto(body); }
 }
 
 function secretWipe(){
@@ -275,20 +272,22 @@ async function fetchRealIP(){
 		return ip;
 	} catch(e){ return 'Nem elérhető'; }
 }
-function renderIPList(){
+function renderIPListInto(cont){
 	const log = loadIPLog();
-	const cont = $('#ipList'); if(!cont) return;
 	if(!log.length){ cont.innerHTML = '<div class="list-card"><span class="muted">Nincs bejelentkezési napló.</span></div>'; return; }
 	const html = log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b>${(e.realIP||e.ip)?`<span class="pill" style="margin-left:8px">Real IP: ${esc(e.realIP||e.ip)}</span>`:''}<p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Bejelentkezések: ${e.count||1}</p></div></div>`).join('');
 	cont.innerHTML = html;
 }
+function renderIPList(){
+	const cont = $('#ipList'); if(cont) renderIPListInto(cont);
+}
 function refreshIP(){
 	getCurrentIP();
-	renderIPList();
+	renderIPList(); if(isSecretAccount() && !$('#tab-secret').classList.contains('hidden')){ const b=$('#secretBody'); if(b && b.dataset.view==='data') renderIPListInto(b); }
 	uiNotify('Valódi IP-cím lekérése folyamatban...', 'info');
 	Promise.all(loadIPLog().map(e=>fetchRealIPFor(e))).then(()=>{
 		renderIPList();
-		if(typeof renderSecretPanel==='function' && isSecretAccount() && !document.getElementById('tab-secret').classList.contains('hidden')) renderSecretPanel();
+		if(typeof renderSecretPanel==='function' && isSecretAccount() && !document.getElementById('tab-secret').classList.contains('hidden')){ const b=$('#secretBody'); if(b && b.dataset.view==='data') renderIPListInto(b); else renderSecretPanel(); }
 		uiNotify('IP-címek frissítve (valódi, nyilvános IP).', 'success');
 	});
 }
