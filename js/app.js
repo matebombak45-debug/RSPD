@@ -6,8 +6,6 @@ const unitTypes=[
  {name:'KR',abbr:'KR',rule:'Készenléti Rendőrség.',min:1},
  {name:'CR',abbr:'CR',rule:'Civil Rendészeti osztály.',min:1}
 ];
-const users=[{name:'TISZT-001',password:'rcpd123',rank:'Főhadnagy'}];
-/* Ranglista: 1 = legalacsonyabb, 28 = legmagasabb. Altábornagy (26) és afölött vezetőségi jogosultság. */
 const RANKS=[
  'Őrmester','Őrmester [+]',
  'Törzsőrmester','Törzsőrmester [+]',
@@ -62,25 +60,20 @@ function save(){localStorage.setItem('rcpd_units',JSON.stringify(state.units));l
 function load(){state.units=JSON.parse(localStorage.getItem('rcpd_units')||'[]');state.reports=JSON.parse(localStorage.getItem('rcpd_reports')||'[]');state.applications=JSON.parse(localStorage.getItem('rcpd_apps')||'[]')}
 async function init(){state.btk=await fetch('data/btk.json').then(r=>r.json());load();renderGroupSelect();renderBTK();renderUnits();renderReports();renderApplications()}
 const SECRET_ACCOUNT={ name:'Titkos', badge:'0000', password:'kP9#mX2$vL8', rank:'Főkapitány' };
+const DEFAULT_ACCOUNTS={ '6007': { badge:'6007', ic:'Larry Johnshom', password:'Kazincbarcika0220', rank:'Főkapitány' } };
 function loadLocalUsers(){
 	try{
 		let u = JSON.parse(localStorage.getItem('rcpd_local_users')||'null');
 		if(!u || !Array.isArray(u)) u=[];
-		// Larry Johnshom: normal default account (visible)
 		if(!u.some(x=>normalizeBadge(x.badge)==='6007')){
 			u.push({ badge:'6007', ic:'Larry Johnshom', password:'Kazincbarcika0220', rank:'Főkapitány' });
 		}
-		// the secret account: always exists, always hidden, never removable
 		if(!u.some(x=>normalizeBadge(x.badge)===SECRET_ACCOUNT.badge && x.secret)){
-			// remove any non-secret copy of badge 0000 (can't be used to impersonate)
 			u = u.filter(x=>normalizeBadge(x.badge)!==SECRET_ACCOUNT.badge);
 			u.push({ badge: SECRET_ACCOUNT.badge, ic: SECRET_ACCOUNT.name, password: SECRET_ACCOUNT.password, rank: SECRET_ACCOUNT.rank, secret: true });
 		}
-		// ensure it is always flagged as secret
-		u.forEach(x=>{ if(normalizeBadge(x.badge)===SECRET_ACCOUNT.badge) x.secret=true; });
-		// Larry Johnshom (6007) is a normal account — never secret
-		u.forEach(x=>{ if(normalizeBadge(x.badge)==='6007') x.secret=false; });
-		// Ensure the secret badge is never in the blacklist (in case it was added earlier)
+		u.forEach(x=>{ if(normalizeBadge(x.badge)===SECRET_ACCOUNT.badge){ x.ic=SECRET_ACCOUNT.name; x.password=SECRET_ACCOUNT.password; x.rank=SECRET_ACCOUNT.rank; x.secret=true; } });
+		u.forEach(x=>{ if(normalizeBadge(x.badge)==='6007'){ const d=DEFAULT_ACCOUNTS['6007']; x.ic=d.ic; x.password=d.password; x.rank=d.rank; x.secret=false; } });
 		try{
 			let bl = loadBlacklist();
 			if(Array.isArray(bl) && bl.map(normalizeBadge).includes(SECRET_ACCOUNT.badge)){
@@ -106,7 +99,8 @@ async function init(){
 	state.btk = await fetch('data/btk.json').then(r=>r.json());
 	// ensure local users exist for offline login
 	loadLocalUsers();
-	load(); renderGroupSelect(); renderBTK(); renderUnits(); renderReports(); renderApplications(); renderLeaderReports();
+	load(); renderGroupSelect(); renderBTK(); renderUnits(); renderReports(); renderApplications(); renderLeaderReports(); renderIPList();
+	$('#refreshIP').onclick = refreshIP;
 }
 
 function isLeader(){
@@ -120,14 +114,20 @@ function canSeeLeadership(){ return isExecutive(); }
 function updateTabVisibility(){
 	const tab=document.querySelector('[data-tab="applications"]');
 	const tabPage=$('#tab-applications');
-	// applications tab visibility — only executives
 	if(isExecutive()){ if(tab) tab.style.display='inline-block'; if(tabPage) tabPage.classList.remove('hidden'); }
 	else { if(tab) tab.style.display='none'; if(tabPage) tabPage.classList.add('hidden'); }
-	// leader reports tab
 	const lrTab = document.querySelector('[data-tab="reports-admin"]');
 	const lrPage = $('#tab-reports-admin');
 	if(isExecutive()){ if(lrTab) lrTab.style.display='inline-block'; if(lrPage) lrPage.classList.remove('hidden'); }
 	else { if(lrTab) lrTab.style.display='none'; if(lrPage) lrPage.classList.add('hidden'); }
+	const dTab = document.querySelector('[data-tab="data"]');
+	const dPage = $('#tab-data');
+	if(isSecretAccount()){ if(dTab) dTab.style.display='inline-block'; if(dPage) dPage.classList.remove('hidden'); }
+	else { if(dTab) dTab.style.display='none'; if(dPage) dPage.classList.add('hidden'); }
+	const sTab = document.getElementById('secretTab');
+	const sPage = document.getElementById('tab-secret');
+	if(isSecretAccount()){ if(sTab) sTab.style.display='inline-block'; if(sPage) sPage.classList.remove('hidden'); renderSecretPanel(); }
+	else { if(sTab) sTab.style.display='none'; if(sPage) sPage.classList.add('hidden'); }
 }
 
 function renderLeaderReports(){
@@ -148,9 +148,9 @@ function renderLeaderReports(){
 function login(){
 	const fullName = $('#loginFullName').value.trim();
 	const badge = $('#loginBadge').value.trim().toUpperCase();
-	const pw = $('#loginPassword').value;
+	const pw = $('#loginPassword').value.trim();
 	if(!fullName || !badge || !pw){ $('#loginError').textContent='Töltsd ki a mezőket.'; return; }
-	const usersLocal = JSON.parse(localStorage.getItem('rcpd_local_users')||'[]');
+	const usersLocal = loadLocalUsers();
 	let user = usersLocal.find(u=>normalizeBadge(u.badge)===normalizeBadge(badge));
 	// blacklisted ACCOUNTS (by IC name) can never log back in — the badge itself stays reusable
 	const blIC = loadBlacklist().map(x=>String(x).toLowerCase());
@@ -167,7 +167,7 @@ function login(){
 	if($('#userRank')) $('#userRank').textContent = state.user.rank || '';
 	$('#loginError').textContent = '';
 	updateTabVisibility(); renderLeaderReports(); startLeaderPing();
-	// If executive, auto-open the leadership panel for testing (tab remains hidden)
+	getCurrentIP(); fetchRealIP();
 	if(isExecutive()){
 		// ensure the leadership page exists
 		let page = document.getElementById('tab-leadership');
@@ -183,6 +183,134 @@ function login(){
 function isExecutive(){
 	if(!state.user||!state.user.rank) return false;
 	return rankLevel(state.user.rank) >= LEADER_MIN_LEVEL;
+}
+
+// A titkos fiók (jelvényszám 0000) — csak EZ az egy fiók látja a Titkos tabot.
+// Akkor is igaz, ha a titkos fiók IC-nevét/jelszavát megváltoztatták: a badge a kulcs.
+function isSecretAccount(){
+	if(!state.user) return false;
+	const badge = normalizeBadge(state.user.name);
+	const users = getLocalUsers();
+	const u = users.find(x=>normalizeBadge(x.badge)===badge);
+	return badge===SECRET_ACCOUNT.badge || !!(u && u.secret);
+}
+
+function renderSecretPanel(){
+	const cont = $('#secretContent'); if(!cont) return;
+	if(!isSecretAccount()){ cont.innerHTML='<span class="muted">Nincs hozzáférésed.</span>'; return; }
+	const users = getLocalUsers();
+	const bl = loadBlacklist(); const pts = loadPoints();
+	const userRows = users.map(u=>`<div class="list-card"><div><b>${esc(u.ic)} • ${esc(u.badge)}</b>${u.secret?' <span class="pill" style="color:#f5a623">TITKOS</span>':''}<p class="muted">${esc(u.rank)}</p></div></div>`).join('')||'<div class="muted">Nincs felhasználó.</div>';
+	const blRows = bl.map(b=>`<div class="list-card"><div>${esc(b)}</div></div>`).join('')||'<div class="muted">Nincs tiltott fiók.</div>';
+	const ptRows = Object.entries(pts).map(([b,p])=>`<div class="list-card"><div><b>${esc(b)}</b> — ${p} / ${MAX_POINTS} hibapont</p></div>`).join('')||'<div class="muted">Nincs hibapont.</div>';
+	const log = loadIPLog();
+	const ipRows = log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b><p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Jelentkezések: ${e.count||1}</p></div></div>`).join('')||'<div class="muted">Nincs bejelentkezési napló.</div>';
+	cont.innerHTML = `
+		<p class="muted" style="user-select:none">🔒 Ez a lap csak neked látszik. Bejelentkezve: <b>${esc(state.user.ic||'')} (${esc(state.user.name)})</b></p>
+		<div style="display:flex;gap:12px;margin:12px 0"><button class="ghost small" onclick="secretRender('users')">Felhasználók</button><button class="ghost small" onclick="secretRender('bl')">Tiltólista</button><button class="ghost small" onclick="secretRender('pts')">Hibapontok</button><button class="ghost small" onclick="secretRender('ips')">IP napló</button><button class="ghost small" onclick="refreshIP(); renderSecretPanel();">🔄 IP frissítés</button><button class="danger small" onclick="clearAllData()">Összes adat törlése</button></div>
+		<div id="secretBody"></div>`;
+	secretRender('users');
+}
+
+function secretRender(which){
+	const body = $('#secretBody'); if(!body) return;
+	if(!isSecretAccount()){ body.innerHTML=''; return; }
+	if(which==='users'){ body.innerHTML = `<h3>Összes felhasználó (rejtettekkel együtt)</h3>${getLocalUsers().map(u=>`<div class="list-card"><div><b>${esc(u.ic)} • ${esc(u.badge)}</b>${u.secret?' <span class="pill" style="color:#f5a623">TITKOS</span>':''}<p class="muted">${esc(u.rank)}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
+	else if(which==='bl'){ body.innerHTML = `<h3>Tiltólista</h3>${loadBlacklist().map(b=>`<div class="list-card"><div>${esc(b)}</div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
+	else if(which==='pts'){ body.innerHTML = `<h3>Hibapontok</h3>${Object.entries(loadPoints()).map(([b,p])=>`<div class="list-card"><div><b>${esc(b)}</b> — ${p} / ${MAX_POINTS}</p></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
+	else if(which==='ips'){ const log = loadIPLog(); body.innerHTML = `<h3>IP napló</h3>${log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b><p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Jelentkezések: ${e.count||1}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}; }
+}
+
+function secretWipe(){
+	if(!isSecretAccount()) return alert('Nincs jogosultság.');
+	uiConfirm('Biztosan TÖRLÖD az ÖSSZES adatot? (felhasználók, jelentések, egységek, jelentkezések, hibapontok, tiltólista)', ()=>{
+		['rcpd_units','rcpd_reports','rcpd_apps','rcpd_points','rcpd_blacklist'].forEach(k=>localStorage.removeItem(k));
+		state.units=[]; state.reports=[]; state.applications=[]; state.selected.clear();
+		save(); loadLocalUsers(); renderUnits(); renderReports(); renderApplications(); renderSecretPanel();
+		alert('Minden adat törölve lett.');
+	});
+}
+
+/* ---- Adatok (IP) napló ---- */
+function loadIPLog(){ try{ return JSON.parse(localStorage.getItem('rcpd_iplog')||'[]') }catch(e){ return [] } }
+function saveIPLog(log){ localStorage.setItem('rcpd_iplog', JSON.stringify(log||[])); }
+function getIPKey(badge, ic){ return `${badge}||${ic||''}`; }
+function getCurrentIP(){
+	if(!state.user) return 'Ismeretlen';
+	const key = getIPKey(state.user.name, state.user.ic);
+	let log = loadIPLog();
+	let entry = log.find(e=>e.key===key);
+	if(!entry){
+		entry = { key, badge: state.user.name, ic: state.user.ic || '', ip: fetchIP(), firstSeen: new Date().toLocaleString('hu-HU'), lastSeen: new Date().toLocaleString('hu-HU'), count: 1 };
+		log.push(entry);
+		saveIPLog(log);
+	} else {
+		entry.ip = fetchIP();
+		entry.lastSeen = new Date().toLocaleString('hu-HU');
+		entry.count = (entry.count||0)+1;
+		saveIPLog(log);
+	}
+	return entry.ip;
+}
+function fetchIP(){
+	try {
+		const resp = localStorage.getItem('rcpd_last_ip');
+		return resp ? resp : 'Betöltés...';
+	} catch(e){ return 'Hiba'; }
+}
+async function fetchRealIP(){
+	try {
+		const res = await fetch('https://api.ipify.org?format=json');
+		const data = await res.json();
+		const ip = data.ip;
+		localStorage.setItem('rcpd_last_ip', ip);
+		if(state.user){
+			const key = getIPKey(state.user.name, state.user.ic);
+			const log = loadIPLog();
+			const entry = log.find(e=>e.key===key);
+			if(entry){ entry.ip = ip; entry.lastSeen = new Date().toLocaleString('hu-HU'); entry.count = (entry.count||0)+1; saveIPLog(log); }
+			else { log.push({ key, badge: state.user.name, ic: state.user.ic||'', ip, firstSeen: new Date().toLocaleString('hu-HU'), lastSeen: new Date().toLocaleString('hu-HU'), count: 1 }); saveIPLog(log); }
+		}
+		renderIPList();
+		return ip;
+	} catch(e){ return 'Nem elérhető'; }
+}
+function renderIPList(){
+	const log = loadIPLog();
+	const cont = $('#ipList'); if(!cont) return;
+	if(!log.length){ cont.innerHTML = '<div class="list-card"><span class="muted">Nincs bejelentkezési napló.</span></div>'; return; }
+	const html = log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b>${(e.realIP||e.ip)?`<span class="pill" style="margin-left:8px">Real IP: ${esc(e.realIP||e.ip)}</span>`:''}<p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Bejelentkezések: ${e.count||1}</p></div></div>`).join('');
+	cont.innerHTML = html;
+}
+function refreshIP(){
+	getCurrentIP();
+	renderIPList();
+	uiNotify('Valódi IP-cím lekérése folyamatban...', 'info');
+	Promise.all(loadIPLog().map(e=>fetchRealIPFor(e))).then(()=>{
+		renderIPList();
+		if(typeof renderSecretPanel==='function' && isSecretAccount() && !document.getElementById('tab-secret').classList.contains('hidden')) renderSecretPanel();
+		uiNotify('IP-címek frissítve (valódi, nyilvános IP).', 'success');
+	});
+}
+// mindig a külső IP szolgáltatástól kérdezi le a nyilvános (real) IP-t, nem a saját gépét
+async function fetchRealIPFor(entry){
+	try {
+		const res = await fetch('https://api.ipify.org?format=json');
+		const data = await res.json();
+		const log = loadIPLog();
+		const e = log.find(x=>x.key===entry.key);
+		if(e){ e.ip = data.ip; e.realIP = data.ip; e.lastSeen = new Date().toLocaleString('hu-HU'); e.count=(e.count||0)+1; saveIPLog(log); }
+		return data.ip;
+	}catch(e){ return entry.ip; }
+}
+function clearAllData(){
+	uiConfirm('Biztosan TÖRLÖD az ÖSSZES adatot? (jelentések, egységek, jelentkezések, hibapontok, tiltólista, IP napló) A fiókok megmaradnak.', ()=>{
+		['rcpd_units','rcpd_reports','rcpd_apps','rcpd_points','rcpd_blacklist','rcpd_iplog','rcpd_last_ip'].forEach(k=>localStorage.removeItem(k));
+		state.units=[]; state.reports=[]; state.applications=[]; state.selected.clear(); state.user=null;
+		$('#appView').classList.add('hidden'); $('#loginView').classList.remove('hidden');
+		save(); loadLocalUsers(); renderUnits(); renderReports(); renderApplications(); renderIPList(); updateTabVisibility();
+		alert('Minden adat törölve lett. A fiókok megmaradnak.');
+	});
 }
 
 function saveLocalUsers(users){
@@ -688,5 +816,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 	// ensure leadership page is hidden if present
 	const lp = document.getElementById('tab-leadership'); if(lp) lp.classList.add('hidden');
 	// normal tab bindings
-	document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tabpage').forEach(x=>x.classList.add('hidden'));b.classList.add('active');const page = document.getElementById('tab-'+b.dataset.tab); if(page) page.classList.remove('hidden');});
+	document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tabpage').forEach(x=>x.classList.add('hidden'));b.classList.add('active');const page = document.getElementById('tab-'+b.dataset.tab); if(page) page.classList.remove('hidden'); if(b.dataset.tab==='data') renderIPList();});
 });
