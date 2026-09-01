@@ -218,7 +218,7 @@ function secretRender(which){
 	if(which==='users'){ body.innerHTML = `<h3>Összes felhasználó (rejtettekkel együtt)</h3>${getLocalUsers().map(u=>`<div class="list-card"><div><b>${esc(u.ic)} • ${esc(u.badge)}</b>${u.secret?' <span class="pill" style="color:#f5a623">TITKOS</span>':''}<p class="muted">${esc(u.rank)}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
 	else if(which==='bl'){ body.innerHTML = `<h3>Tiltólista</h3>${loadBlacklist().map(b=>`<div class="list-card"><div>${esc(b)}</div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
 	else if(which==='pts'){ body.innerHTML = `<h3>Hibapontok</h3>${Object.entries(loadPoints()).map(([b,p])=>`<div class="list-card"><div><b>${esc(b)}</b> — ${p} / ${MAX_POINTS}</p></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
-	else if(which==='ips'){ const log = loadIPLog(); body.innerHTML = `<h3>IP napló</h3>${log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b><p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Jelentkezések: ${e.count||1}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}; }
+	else if(which==='ips'){ const log = loadIPLog(); body.innerHTML = `<h3>IP napló</h3>${log.map(e=>`<div class="list-card"><div><b>${esc(e.ic||e.badge)} • ${esc(e.badge)}</b><p class="muted">IP: ${esc(e.ip||'Ismeretlen')} • Először: ${esc(e.firstSeen)} • Utoljára: ${esc(e.lastSeen)} • Jelentkezések: ${e.count||1}</p></div></div>`).join('')||'<div class="muted">Nincs.</div>'}`; }
 }
 
 function secretWipe(){
